@@ -63,7 +63,7 @@ function displayRecipe(data) {
 let allMenu = null
 
 function showFullRecipe(meal) {
-    console.log(meal.strMeal);          // name
+    console.log(meal.strMeal);
     console.log(meal.strInstructions);
 
 
