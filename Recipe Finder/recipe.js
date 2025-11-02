@@ -41,7 +41,7 @@ function displayRecipe(data) {
     data.meals.forEach(meal => {
         let name = document.createElement('p')
 
-        name.className = 'my-2 p-2 border-2 rounded bg-white hover:bg-red-50'
+        name.className = 'my-2 p-2 border-2 rounded bg-white hover:bg-blue-100 font-serif'
         name.textContent = `${meal.strMeal}`
         name.dataset.value = meal.idMeal
         displayEl.appendChild(name)
@@ -85,10 +85,10 @@ function showFullRecipe(meal) {
     backBtn.className = 'bg-red-500 w-32 border rounded p-1'
     backBtn.textContent = 'Back To Meals'
 
-    mealName.className = 'mb-2 mt-2 text-left'
+    mealName.className = 'mb-2 mt-2 text-left font-serif'
     mealName.textContent = `Meal: ${meal.strMeal}`
 
-    instruction.className = 'text-left '
+    instruction.className = 'text-left border-2 border-gray-500 rounded p-2 mb-2 font-serif italic'
 
     img.src = meal.strMealThumb
     img.className = 'block w-auto h-auto rounded'
@@ -113,6 +113,13 @@ function showFullRecipe(meal) {
     displayEl.appendChild(img)
     displayEl.appendChild(videoSource)
 }
+
+clearBtn.addEventListener('click', (event) => {
+    event.preventDefault()
+
+    recipe.value = ''
+    displayEl.innerHTML = ''
+})
 
 searchBtn.addEventListener('click', fetchRecipes);
 recipe.addEventListener('keydown', fetchRecipes);
