@@ -69,6 +69,11 @@ function showFullRecipe(meal) {
 
     let mealName = document.createElement('p')
     let instruction =  document.createElement('p')
+    let img = document.createElement('img')
+    let videoSource = document.createElement('iframe')
+    const videoId = meal.strYoutube.split("v=")[1]
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`
+
 
     instruction.innerHTML = meal.strInstructions.replace(/\r\n|\n/g, '<br><br>');
     let backBtn = document.createElement('button')
@@ -84,8 +89,17 @@ function showFullRecipe(meal) {
     mealName.textContent = `Meal: ${meal.strMeal}`
 
     instruction.className = 'text-left '
-    // instruction.textContent = `${meal.strInstructions}`
 
+    img.src = meal.strMealThumb
+    img.className = 'block w-auto h-auto rounded'
+
+    videoSource.src = embedUrl;
+    videoSource.width = "560";
+    videoSource.height = "315";
+    videoSource.frameBorder = "0";
+    videoSource.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    videoSource.allowFullscreen = true;
+    videoSource.className = "block w-full h-64 rounded mt-2";
 
     displayEl.innerHTML = ''
 
@@ -96,6 +110,8 @@ function showFullRecipe(meal) {
     displayEl.appendChild(backContainer)
     displayEl.appendChild(mealName)
     displayEl.appendChild(instruction)
+    displayEl.appendChild(img)
+    displayEl.appendChild(videoSource)
 }
 
 searchBtn.addEventListener('click', fetchRecipes);
