@@ -45,7 +45,16 @@ window.onload = function (){
         url = parsed
         url.forEach(e => {
             let list = document.createElement('li')
+            let deleteBtn = document.createElement('button')
+
+
             list.textContent = e
+            list.className = 'border rounded flex justify-between items-center p-2'
+
+
+            deleteBtn.textContent = 'delete'
+            deleteBtn.className = 'border rounded bg-red-500 px-2 py-1'
+            list.appendChild(deleteBtn)
             bookmarkDisplay.appendChild(list)
         })
     }
