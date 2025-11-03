@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Bookmark Manager</title>
+</head>
+<body class="min-h-screen flex flex-col">
+<header class="p-3 bg-green-400 text-center font-mono italic text-2xl font-bold text-white">Bookmark Manager
+</header>
+
+<div class="w-full flex flex-row p-2 gap-1 bg-gray-100">
+    <input type="text" placeholder="Input URL" id="urlName" class="w-full rounded">
+    <button class="bg-green-500 w-32 rounded font-mono text-white" id="bookmark">Bookmark</button>
+</div>
+
+<main class="flex flex-grow" id="main">
+    <div id="bookmarkDisplay">
+
+    </div>
+</main>
+
+
+<script src="recipe.js"></script>
+</body>
+</html>
