@@ -16,6 +16,27 @@ bookmarkBtn.addEventListener('click', (event) => {
     let list = document.createElement('li')
     list.textContent = input
     bookmarkDisplay.appendChild(list)
+
+    input.value = ''
+})
+
+urlInput.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') {
+        event.preventDefault()
+
+
+        const input = urlInput.value
+        url.push(input)
+
+        const stringifyUrl = JSON.stringify(url)
+        localStorage.setItem('url', stringifyUrl)
+
+        let list = document.createElement('li')
+        list.textContent = input
+        bookmarkDisplay.appendChild(list)
+
+        input.value = ''
+    }
 })
 
 window.onload = function (){
