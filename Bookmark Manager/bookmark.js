@@ -32,10 +32,30 @@ urlInput.addEventListener('keydown', (event) => {
         localStorage.setItem('url', stringifyUrl)
 
         let list = document.createElement('li')
+        let deleteBtn = document.createElement('button')
+
+
         list.textContent = input
+        list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900'
+
+        deleteBtn.textContent = 'delete'
+        deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+
+        list.appendChild(deleteBtn)
         bookmarkDisplay.appendChild(list)
 
-        input.value = ''
+        urlInput.value = ''
+
+        deleteBtn.addEventListener('click', (event) => {
+            const index = url.indexOf(input)
+            if(index > -1){
+                url.splice(index, 1)
+
+                localStorage.setItem('url', JSON.stringify(url))
+
+                list.remove()
+            }
+        })
     }
 })
 
@@ -43,19 +63,28 @@ window.onload = function (){
     const parsed = JSON.parse(localStorage.getItem('url'))
     if(parsed){
         url = parsed
-        url.forEach(e => {
+        url.forEach((e, index) => {
             let list = document.createElement('li')
             let deleteBtn = document.createElement('button')
 
 
             list.textContent = e
-            list.className = 'border rounded flex justify-between items-center p-2'
+            list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900'
 
 
             deleteBtn.textContent = 'delete'
-            deleteBtn.className = 'border rounded bg-red-500 px-2 py-1'
+            deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+
             list.appendChild(deleteBtn)
             bookmarkDisplay.appendChild(list)
+
+            deleteBtn.addEventListener('click', (event) => {
+                url.splice(index, 1)
+
+                localStorage.setItem('url', JSON.stringify(url))
+
+                list.remove()
+            })
         })
     }
 }
