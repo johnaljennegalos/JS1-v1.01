@@ -22,6 +22,8 @@ bookmarkBtn.addEventListener('click', (event) => {
     const urlText = document.createElement('a')
     urlText.textContent = input
     urlText.className = 'underline'
+    urlText.href = input
+    urlText.target = '_blank'
 
     deleteBtn.textContent = 'delete'
     deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 text-black decoration-none'
