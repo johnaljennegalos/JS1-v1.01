@@ -14,10 +14,31 @@ bookmarkBtn.addEventListener('click', (event) => {
     localStorage.setItem('url', stringifyUrl)
 
     let list = document.createElement('li')
+    let deleteBtn = document.createElement('button')
+
+
     list.textContent = input
+    list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
+
+    deleteBtn.textContent = 'delete'
+    deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+
+    list.appendChild(deleteBtn)
     bookmarkDisplay.appendChild(list)
 
     input.value = ''
+
+    deleteBtn.addEventListener('click', (event) => {
+        const index = url.indexOf(input)
+        if(index > -1){
+            url.splice(index, 1)
+
+            localStorage.setItem('url', JSON.stringify(url))
+
+            list.remove()
+        }
+    })
+
 })
 
 urlInput.addEventListener('keydown', (event) => {
@@ -69,7 +90,7 @@ window.onload = function (){
 
 
             list.textContent = e
-            list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900'
+            list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
 
 
             deleteBtn.textContent = 'delete'
