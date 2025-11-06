@@ -62,12 +62,18 @@ urlInput.addEventListener('keydown', (event) => {
         let deleteBtn = document.createElement('button')
 
 
-        list.textContent = input
-        list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
+        list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700'
+
+        const urlText = document.createElement('a')
+        urlText.textContent = input
+        urlText.className = 'underline'
+        urlText.href = input
+        urlText.target = '_blank'
 
         deleteBtn.textContent = 'delete'
-        deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 no-underline'
+        deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 text-black decoration-none'
 
+        list.appendChild(urlText)
         list.appendChild(deleteBtn)
         bookmarkDisplay.appendChild(list)
 
@@ -95,13 +101,18 @@ window.onload = function (){
             let deleteBtn = document.createElement('button')
 
 
-            list.textContent = e
-            list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
+            list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700'
 
+            const urlText = document.createElement('a')
+            urlText.textContent = e
+            urlText.className = 'underline'
+            urlText.href = e
+            urlText.target = '_blank'
 
             deleteBtn.textContent = 'delete'
-            deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 no-underline'
+            deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 text-black no-underline'
 
+            list.appendChild(urlText)
             list.appendChild(deleteBtn)
             bookmarkDisplay.appendChild(list)
 
