@@ -17,16 +17,20 @@ bookmarkBtn.addEventListener('click', (event) => {
     let deleteBtn = document.createElement('button')
 
 
-    list.textContent = input
-    list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
+    list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700'
+
+    const urlText = document.createElement('a')
+    urlText.textContent = input
+    urlText.className = 'underline'
 
     deleteBtn.textContent = 'delete'
-    deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+    deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 text-black decoration-none'
 
+    list.appendChild(urlText)
     list.appendChild(deleteBtn)
     bookmarkDisplay.appendChild(list)
 
-    input.value = ''
+    urlInput.value = ''
 
     deleteBtn.addEventListener('click', (event) => {
         const index = url.indexOf(input)
@@ -60,7 +64,7 @@ urlInput.addEventListener('keydown', (event) => {
         list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
 
         deleteBtn.textContent = 'delete'
-        deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+        deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 no-underline'
 
         list.appendChild(deleteBtn)
         bookmarkDisplay.appendChild(list)
@@ -94,7 +98,7 @@ window.onload = function (){
 
 
             deleteBtn.textContent = 'delete'
-            deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
+            deleteBtn.className = 'border rounded bg-red-500 px-1 py-1 no-underline'
 
             list.appendChild(deleteBtn)
             bookmarkDisplay.appendChild(list)
