@@ -36,7 +36,7 @@ urlInput.addEventListener('keydown', (event) => {
 
 
         list.textContent = input
-        list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900'
+        list.className = 'border rounded flex justify-between items-center mt-1 w-full hover:bg-gray-100 hover:text-gray-900 text-blue-700 underline'
 
         deleteBtn.textContent = 'delete'
         deleteBtn.className = 'border rounded bg-red-500 px-1 py-1'
