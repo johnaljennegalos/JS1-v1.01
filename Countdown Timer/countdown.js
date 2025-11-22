@@ -7,6 +7,7 @@ let stopBtn = document.getElementById('stop')
 let clearBtn = document.getElementById('clear')
 
 let currentTotalSeconds = 0
+let countdownInterval;
 
 function validateInput(){
 
@@ -33,8 +34,6 @@ function validateInput(){
 
     let totalSeconds = convertToSeconds(hour, minutes, seconds)
     currentTotalSeconds = totalSeconds
-
-    startCountdown()
 }
 
 function convertToSeconds(h, m, s) {
@@ -42,7 +41,7 @@ function convertToSeconds(h, m, s) {
 }
 
 function startCountdown(){
-    let countdownInterval = setInterval(() => {
+    countdownInterval = setInterval(() => {
         currentTotalSeconds--
 
 
@@ -63,3 +62,10 @@ function startCountdown(){
 
     }, 1000)
 }
+
+startBtn.addEventListener('click', () => {
+    validateInput()
+    if(currentTotalSeconds > 0){
+        startCountdown()
+    }
+})
