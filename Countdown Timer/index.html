@@ -19,7 +19,7 @@
     </div>
 
     <div class="flex flex-grow flex-row justify-between items-center p-4">
-        <input class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
+        <input id="hour" class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
 <!--            <p class="text-8xl font-mono">00</p>-->
         </input>
 
@@ -27,7 +27,7 @@
             <p class="text-8xl font-mono">:</p>
         </div>
 
-        <input class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
+        <input id="minutes" class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
         <!--            <p class="text-8xl font-mono">00</p>-->
         </input>
 
@@ -35,7 +35,7 @@
             <p class="text-8xl font-mono">:</p>
         </div>
 
-        <input class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
+        <input id="seconds" class="w-32 h-32 bg-red-500 rounded flex justify-center items-center text-8xl font-mono text-center text-black hover:bg-opacity-30" placeholder="00">
         <!--            <p class="text-8xl font-mono">00</p>-->
         </input>
 
@@ -43,15 +43,15 @@
     </div>
 
     <div class="w-full h-12 bg-red-600 flex justify-between items-center rounded p-4">
-        <button class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
+        <button id="start" class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
             START
         </button>
 
-        <button class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
+        <button id="stop" class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
             STOP
         </button>
 
-        <button class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
+        <button id="reset" class="w-32 bg-white h-8 rounded bg-gray-400 text-center flex justify-center items-center text-2xl font-mono font-bold">
             RESET
         </button>
 
@@ -62,6 +62,6 @@
 
 
 
-<script src=""></script>
+<script src="countdown.js"></script>
 </body>
 </html>
