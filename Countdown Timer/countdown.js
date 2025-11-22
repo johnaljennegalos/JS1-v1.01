@@ -42,16 +42,6 @@ function convertToSeconds(h, m, s) {
 
 function startCountdown(){
     countdownInterval = setInterval(() => {
-        currentTotalSeconds--
-
-
-        if(currentTotalSeconds <= 0) {
-            clearInterval(countdownInterval)
-            currentTotalSeconds = 0
-            errorMsg.textContent = "Time Over"
-            return
-        }
-
         let hour = Math.floor(currentTotalSeconds / 3600)
         let minutes = Math.floor((currentTotalSeconds % 3600) / 60)
         let seconds = currentTotalSeconds % 60
@@ -59,6 +49,17 @@ function startCountdown(){
         hourInput.value = hour
         minutesInput.value = minutes
         secondsInput.value = seconds
+
+        currentTotalSeconds--
+
+
+        if(currentTotalSeconds < 0) {
+            clearInterval(countdownInterval)
+            currentTotalSeconds = 0
+            errorMsg.textContent = "Time Over"
+            return
+        }
+
 
     }, 1000)
 }
