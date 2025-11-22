@@ -4,7 +4,7 @@ let secondsInput = document.getElementById('seconds')
 let errorMsg =  document.getElementById('error');
 let startBtn = document.getElementById('start')
 let stopBtn = document.getElementById('stop')
-let clearBtn = document.getElementById('clear')
+let resetBtn = document.getElementById('reset')
 
 let currentTotalSeconds = 0
 let countdownInterval;
@@ -68,4 +68,18 @@ startBtn.addEventListener('click', () => {
     if(currentTotalSeconds > 0){
         startCountdown()
     }
+})
+
+stopBtn.addEventListener('click', () => {
+    clearInterval(countdownInterval);
+})
+
+resetBtn.addEventListener('click', () => {
+    clearInterval(countdownInterval);
+    countdownInterval = null
+    currentTotalSeconds = 0;
+
+    hourInput.value = ""
+    minutesInput.value = ""
+    secondsInput.value = ""
 })
