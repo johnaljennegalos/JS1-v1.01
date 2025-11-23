@@ -5,6 +5,7 @@ let errorMsg =  document.getElementById('error');
 let startBtn = document.getElementById('start')
 let stopBtn = document.getElementById('stop')
 let resetBtn = document.getElementById('reset')
+let containerEl = document.getElementById('container');
 
 let currentTotalSeconds = 0
 let countdownInterval;
@@ -90,4 +91,16 @@ resetBtn.addEventListener('click', () => {
     hourInput.value = ""
     minutesInput.value = ""
     secondsInput.value = ""
+})
+
+
+containerEl.addEventListener('keydown', (e) => {
+
+    if(e.key === 'Enter'){
+        validateInput()
+
+        if(currentTotalSeconds > 0){
+            startCountdown()
+        }
+    }
 })
