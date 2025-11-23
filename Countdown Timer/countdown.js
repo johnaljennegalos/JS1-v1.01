@@ -9,6 +9,8 @@ let resetBtn = document.getElementById('reset')
 let currentTotalSeconds = 0
 let countdownInterval;
 
+errorMsg.style.display = "none";
+
 function validateInput(){
 
     let hour = Number(hourInput.value);
@@ -16,17 +18,20 @@ function validateInput(){
     let seconds = Number(secondsInput.value);
 
     if(hour < 0){
+        errorMsg.style.display = "block";
         errorMsg.textContent = "Hours cannot be negative."
         return;
     }
 
     if(minutes < 0 || minutes > 59){
+        errorMsg.style.display = "block";
         errorMsg.textContent = "Invalid Minutes";
         minutesInput.value = ""
         return
     }
 
     if(seconds < 0 || seconds > 59){
+        errorMsg.style.display = "block";
         errorMsg.textContent = "Invalid Seconds";
         secondsInput.value = ""
         return
@@ -49,6 +54,8 @@ function startCountdown(){
         hourInput.value = hour
         minutesInput.value = minutes
         secondsInput.value = seconds
+
+        errorMsg.style.display = "none";
 
         currentTotalSeconds--
 
