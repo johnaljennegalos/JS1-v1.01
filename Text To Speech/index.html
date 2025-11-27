@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+    <title>Hand Gesture Recognition</title>
+</head>
+<body class="bg-gray-700 text-white flex flex-col items-center justify-center min-h-screen">
+<h1 class="text-3xl font-bold mb-4">
+    Text To Speech
+</h1>
+
+<div class="w-full flex justify-center items-center flex-col text-left">
+    <label>Pitch:</label>
+    <input type="range" class="w-96" min="0" max="100" value="50" id="myRange">
+</div>
+
+<textarea class="w-96 h-90 bg-gray-200 rounded mt-4 text-black font-mono font-bold italic text-2xl" name="" id="" placeholder="Type you text here...">
+</textarea>
+
+<div class="w-full flex justify-center mt-4 items-center flex-row space-x-4">
+    <button class="w-40 h-10 bg-green-600 rounded text-xl">Convert</button>
+    <button class="w-40 h-10 bg-red-500 rounded text-xl">Reset</button>
+</div>
+
+
+<script src="speech.js"></script>
+</body>
+</html>
