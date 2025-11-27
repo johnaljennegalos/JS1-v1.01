@@ -12,17 +12,24 @@
     Text To Speech
 </h1>
 
-<div class="w-full flex justify-center items-center flex-col text-left">
-    <label>Pitch:</label>
-    <input type="range" class="w-96" min="0" max="100" value="50" id="myRange">
-</div>
-
-<textarea class="w-96 h-90 bg-gray-200 rounded mt-4 text-black font-mono font-bold italic text-2xl" name="" id="" placeholder="Type you text here...">
+<textarea class="w-96 h-90 bg-gray-200 rounded mt-4 text-black font-mono font-bold italic text-2xl" name="" id="usertext" placeholder="Type you text here...">
 </textarea>
 
+<div class="w-full flex justify-center items-center flex-col text-left mt-3">
+    <div class="flex flex-col">
+        <label>Speed:</label>
+        <input type="range" class="w-96" min="0" max="100" value="50" id="speed-slider">
+    </div>
+    <br>
+    <div class="flex flex-col">
+        <label>Pitch:</label>
+        <input type="range" class="w-96" min="0" max="100" value="50" id="pitch-slider">
+    </div>
+</div>
+
 <div class="w-full flex justify-center mt-4 items-center flex-row space-x-4">
-    <button class="w-40 h-10 bg-green-600 rounded text-xl">Convert</button>
-    <button class="w-40 h-10 bg-red-500 rounded text-xl">Reset</button>
+     <button class="w-40 h-10 bg-green-600 hover:bg-green-500 rounded text-xl" id="speak-button">Speak</button>
+    <button class="w-40 h-10 bg-red-500 hover:bg-red-600 rounded text-xl" id="reset-button">Reset</button>
 </div>
 
 
