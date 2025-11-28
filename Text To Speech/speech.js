@@ -11,12 +11,21 @@ speedSlider.addEventListener('input', () => {
 })
 
 pitchSlider.addEventListener('input', () => {
-    pitchValue.textContent = pitchValue.value
+    pitchValue.textContent = pitchSlider.value
 })
 
 speakBtn.addEventListener('click', () => {
 
-    const input = userInput.value;
+
+    const input = userInput.value.trim();
+
+    if(input === ''){
+        alert('Please enter some text to speak.')
+    }
+
+    if(window.speechSynthesis.speaking){
+        window.speechSynthesis.cancel()
+    }
 
     const utterance = new SpeechSynthesisUtterance(input)
 
@@ -25,4 +34,10 @@ speakBtn.addEventListener('click', () => {
     utterance.pitch = pitchSlider.value
 
     window.speechSynthesis.speak(utterance)
+})
+
+resetBtn.addEventListener('click', () => {
+    window.speechSynthesis.cancel()
+
+    userInput.value = ''
 })
