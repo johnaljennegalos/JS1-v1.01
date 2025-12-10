@@ -13,13 +13,13 @@
 
         <form id="container" class="bg-red-500 h-48 w-full">
 
-            <div id="standard" class="bg-blue-900 h-48 w-full p-1">
-                <div class="w-3/4 h-10 flex flex-row justify-center align-center ml-2">
+            <div id="standard" class="bg-blue-900 h-48 w-full p-1 hide">
+                <div class="w-full h-10 flex flex-row justify-center align-center">
                     <button class="w-1/2 bg-green-800 text-xl text-white rounded-l-md">Standard</button>
                     <button class="w-1/2 bg-white text-xl rounded-r-md">Metric</button>
                 </div>
 
-                <div class="w-full mt-2 h-32 bg-emerald-500 flex flex-row justify-between items-center p-1">
+                <div class="w-full mt-2 h-32 bg-emerald-500 flex flex-row justify-center items-center p-1 gap-x-8">
                     <div>
                         <select id="feet" name="feet" class="border rounded p-1">
                             <option value="3">3</option>
@@ -29,7 +29,7 @@
                             <option value="7">7</option>
                             <option value="8">8</option>
                         </select>
-                        <label for="feet">Feet</label>
+                        <label for="feet" class="font-bold">Feet</label>
                     </div>
 
                     <div>
@@ -47,23 +47,42 @@
                             <option value="10">10</option>
                             <option value="11">11</option>
                         </select>
-                        <label for="inch">Inch</label>
+                        <label for="inch" class="font-bold">Inch</label>
                     </div>
 
                     <div>
                         <input type="number" id="pounds" name="pounds" class="border rounded p-1 w-20">
-                        <label for="pounds">Pounds</label>
+                        <label for="pounds" class="font-bold">Pounds</label>
                     </div>
                 </div>
             </div>
 
-            <div id="metric" class="bg-green-900 h-48 w-full hide">
+
+
+            <div id="metric" class="bg-green-900 h-48 w-full p-1">
+                <div class="w-full h-10 flex flex-row justify-center align-center">
+                    <button class="w-1/2 bg-white text-xl rounded-l-md">Standard</button>
+                    <button class="w-1/2 bg-green-800 text-xl rounded-r-md text-white">Metric</button>
+                </div>
+
+                <div class="w-full mt-2 h-32 bg-emerald-500 flex flex-row justify-center items-center p-1 gap-x-8">
+                    <div>
+                        <label for="centimeters">Centimeters</label>
+                        <input type="number" id="centimeters" name="centimeters" class="border rounded p-1 w-32">
+                    </div>
+
+                    <div>
+                        <label for="weight">Weight</label>
+                        <input type="number" id="weight" name="weight" class="border rounded p-1 w-32">
+                    </div>
+                </div>
 
             </div>
         </form>
 
-        <div class="w-full h-24 bg-green-500">
-
+        <div class="w-full h-24 bg-green-100 rounded-b-md flex justify-center items-center gap-x-4 text-white">
+            <button class="w-40 h-10 bg-emerald-500 rounded-full">Calculate BMI</button>
+            <button class="w-32 h-10 bg-emerald-900 rounded-full">Reset</button>
         </div>
     </div>
 
