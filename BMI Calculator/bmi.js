@@ -7,9 +7,12 @@ let metricContainer = document.getElementById('metric-container');
 let standardBtn2 = document.getElementById('standard2-btn')
 let metricBtn2 = document.getElementById('metric2-btn')
 
+
+
 standardBtn2.addEventListener('click', (event) => {
     event.preventDefault();
 
     standardContainer.classList.remove('hide')
     metricContainer.classList.add('hide')
 })
+
