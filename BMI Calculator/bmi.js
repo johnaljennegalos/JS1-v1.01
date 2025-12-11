@@ -7,7 +7,7 @@ let metricContainer = document.getElementById('metric-container');
 let standardBtn2 = document.getElementById('standard2-btn')
 let metricBtn2 = document.getElementById('metric2-btn')
 
-
+let bmiResult = document.getElementById('bmi-result')
 
 standardBtn2.addEventListener('click', (event) => {
     event.preventDefault();
