@@ -10,6 +10,10 @@ let metricBtn2 = document.getElementById('metric2-btn')
 let centimeterEl = document.getElementById('centimeters');
 let weightEl = document.getElementById('weight');
 
+let feetEl = document.getElementById('feet');
+let inchEl =  document.getElementById('inch');
+let poundsEl = document.getElementById('pounds');
+
 let calculateBtn = document.getElementById('calculate-btn');
 
 let bmiResult = document.getElementById('bmi-result')
@@ -31,11 +35,20 @@ calculateBtn.addEventListener('click', (event) => {
 
 
 function calculateBMI() {
-    let centimeters = centimeterEl.value
-    let weight = weightEl.value
-    let metricResult
 
-    metricResult = (weight * 10000) / Math.pow(centimeters, 2)
+    if(!metricContainer.classList.contains('hide')){
+        let c = centimeterEl.value
+        let w = weightEl.value
 
-    bmiResult.textContent = metricResult.toFixed(2)
+        let r = (w * 10000) / Math.pow(c, 2)
+
+        bmiResult.textContent = r.toFixed(2)
+    } else if(!standardContainer.classList.contains('hide')){
+        let p = poundsEl.value
+        let i = inchEl.value
+        let f = feetEl.value
+
+
+    }
 }
+
