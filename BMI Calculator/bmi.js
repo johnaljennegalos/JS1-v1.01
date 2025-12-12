@@ -48,7 +48,10 @@ function calculateBMI() {
         let i = inchEl.value
         let f = feetEl.value
 
+        let h = (f * 12) + i
+        let r = (p / Math.pow(h, 2)) * 703
 
+        bmiResult.textContent = r.toFixed(2)
     }
 }
 
