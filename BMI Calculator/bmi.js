@@ -15,6 +15,7 @@ let inchEl =  document.getElementById('inch');
 let poundsEl = document.getElementById('pounds');
 
 let calculateBtn = document.getElementById('calculate-btn');
+let resetBtn = document.getElementById('reset-btn');
 
 let bmiResult = document.getElementById('bmi-result')
 
@@ -32,6 +33,18 @@ calculateBtn.addEventListener('click', (event) => {
     calculateBMI()
 })
 
+resetBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if(!metricContainer.classList.contains('hide')){
+        centimeterEl.value = ""
+        weightEl.value = ""
+    } else if(!standardContainer.classList.contains('hide')){
+        poundsEl.value = ""
+        inchEl.value = "0"
+        feetEl.value = "3"
+    }
+})
 
 
 function calculateBMI() {
