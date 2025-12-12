@@ -7,6 +7,11 @@ let metricContainer = document.getElementById('metric-container');
 let standardBtn2 = document.getElementById('standard2-btn')
 let metricBtn2 = document.getElementById('metric2-btn')
 
+let centimeterEl = document.getElementById('centimeter');
+let weightEl = document.getElementById('weight');
+
+let calculateBtn = document.getElementById('calculate-btn');
+
 let bmiResult = document.getElementById('bmi-result')
 
 standardBtn2.addEventListener('click', (event) => {
@@ -16,3 +21,16 @@ standardBtn2.addEventListener('click', (event) => {
     metricContainer.classList.add('hide')
 })
 
+calculateBtn.addEventListener('click', calculateBMI)
+
+
+
+function calculateBMI() {
+    let centimeters = Number(centimeterEl.value)
+    let weight = Number(weightEl.value)
+    let metricResult
+
+    metricResult = (weight * 10000) / Math.pow(centimeters, 2)
+
+    bmiResult.textContent = metricResult
+}
