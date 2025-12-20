@@ -49,6 +49,17 @@ resetBtn.addEventListener('click', (event) => {
 
 function calculateBMI() {
 
+    let underweight = document.getElementById('underweight')
+    let healthy =  document.getElementById('healthy')
+    let overweight = document.getElementById('overweight')
+    let obese = document.getElementById('obese')
+
+    underweight.style.backgroundColor = ""
+    healthy.style.backgroundColor = ""
+    overweight.style.backgroundColor = ""
+    obese.style.backgroundColor = ""
+
+
     if(!metricContainer.classList.contains('hide')){
         let c = centimeterEl.value
         let w = weightEl.value
@@ -57,16 +68,6 @@ function calculateBMI() {
 
         bmiResult.textContent = r.toFixed(2)
 
-
-        if(bmiResult.textContent <= 18.5){
-            document.getElementById('underweight').style.backgroundColor = '#9CA3AF';
-        } else if(bmiResult.textContent > 18.5 && bmiResult.textContent <= 24.9){
-            document.getElementById('healthy').style.backgroundColor = '#9CA3AF';
-        } else if(bmiResult.textContent >= 25.0 && bmiResult.textContent <= 29.9){
-            document.getElementById('overweight').style.backgroundColor = '#9CA3AF';
-        } else {
-            document.getElementById('obese').style.backgroundColor = '#9CA3AF';
-        }
 
 
     } else if(!standardContainer.classList.contains('hide')){
@@ -78,6 +79,16 @@ function calculateBMI() {
         let r = (p / Math.pow(h, 2)) * 703
 
         bmiResult.textContent = r.toFixed(2)
+    }
+
+    if(bmiResult.textContent <= 18.5){
+        underweight.style.backgroundColor = '#9CA3AF';
+    } else if(bmiResult.textContent > 18.5 && bmiResult.textContent <= 24.9){
+        healthy.style.backgroundColor = '#9CA3AF';
+    } else if(bmiResult.textContent >= 25.0 && bmiResult.textContent <= 29.9){
+        overweight.style.backgroundColor = '#9CA3AF';
+    } else {
+        obese.style.backgroundColor = '#9CA3AF';
     }
 }
 
