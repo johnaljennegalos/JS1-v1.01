@@ -36,13 +36,29 @@ calculateBtn.addEventListener('click', (event) => {
 resetBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
+    let underweight = document.getElementById('underweight')
+    let healthy =  document.getElementById('healthy')
+    let overweight = document.getElementById('overweight')
+    let obese = document.getElementById('obese')
+
     if(!metricContainer.classList.contains('hide')){
         centimeterEl.value = ""
         weightEl.value = ""
+
+        underweight.style.backgroundColor = ""
+        healthy.style.backgroundColor = ""
+        overweight.style.backgroundColor = ""
+        obese.style.backgroundColor = ""
+
     } else if(!standardContainer.classList.contains('hide')){
         poundsEl.value = ""
         inchEl.value = "0"
         feetEl.value = "3"
+
+        underweight.style.backgroundColor = ""
+        healthy.style.backgroundColor = ""
+        overweight.style.backgroundColor = ""
+        obese.style.backgroundColor = ""
     }
 })
 
@@ -71,9 +87,9 @@ function calculateBMI() {
 
 
     } else if(!standardContainer.classList.contains('hide')){
-        let p = poundsEl.value
-        let i = inchEl.value
-        let f = feetEl.value
+        let p = Number(poundsEl.value)
+        let i = Number(inchEl.value)
+        let f = Number(feetEl.value)
 
         let h = (f * 12) + i
         let r = (p / Math.pow(h, 2)) * 703
