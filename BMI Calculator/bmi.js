@@ -56,6 +56,19 @@ function calculateBMI() {
         let r = (w * 10000) / Math.pow(c, 2)
 
         bmiResult.textContent = r.toFixed(2)
+
+
+        if(bmiResult.textContent <= 18.5){
+            document.getElementById('underweight').style.backgroundColor = '#9CA3AF';
+        } else if(bmiResult.textContent > 18.5 && bmiResult.textContent <= 24.9){
+            document.getElementById('healthy').style.backgroundColor = '#9CA3AF';
+        } else if(bmiResult.textContent >= 25.0 && bmiResult.textContent <= 29.9){
+            document.getElementById('overweight').style.backgroundColor = '#9CA3AF';
+        } else {
+            document.getElementById('obese').style.backgroundColor = '#9CA3AF';
+        }
+
+
     } else if(!standardContainer.classList.contains('hide')){
         let p = poundsEl.value
         let i = inchEl.value
