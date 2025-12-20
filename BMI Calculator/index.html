@@ -11,7 +11,7 @@
     <div class="w-full h-80 rounded-md shadow-md">
         <p class="h-24 text-3xl items-center flex text-left pl-4 font-bold font-sans bg-blue-500 text-white rounded-t-md">BMI CALCULATOR</p>
 
-        <form id="form" class="bg-red-500 h-32 w-full">
+        <form id="form" class="h-32 w-full">
 
             <div id="standard-container" class="bg-blue-900 h-32 w-full p-1 hide">
                 <div class="w-full h-10 flex flex-row justify-center align-center">
@@ -59,28 +59,28 @@
 
 
 
-            <div id="metric-container" class="bg-green-900 h-48 w-full p-1">
+            <div id="metric-container" class=" h-48 w-full p-1">
                 <div class="w-full h-10 flex flex-row justify-center align-center">
                     <button id="standard2-btn" class="w-1/2 bg-white text-xl rounded-l-md">Standard</button>
                     <button id="metric2-btn" class="w-1/2 bg-green-800 text-xl rounded-r-md text-white">Metric</button>
                 </div>
 
-                <div class="w-full mt-2 h-20 bg-emerald-500 flex flex-row justify-center items-center p-1 gap-x-8">
+                <div class="w-full mt-2 h-20 flex flex-row justify-center items-center p-1 gap-x-8 border-b border-white">
                     <div>
-                        <label for="centimeters">Centimeters</label>
-                        <input type="number" id="centimeters" name="centimeters" class="border rounded p-1 w-32">
+                        <label for="centimeters" class="font-serif">Centimeters</label>
+                        <input type="number" id="centimeters" name="centimeters" class="border-2 border-blue-500 rounded p-1 w-32">
                     </div>
 
                     <div>
-                        <label for="weight">Weight</label>
-                        <input type="number" id="weight" name="weight" class="border rounded p-1 w-32">
+                        <label for="weight" class="font-serif">Weight</label>
+                        <input type="number" id="weight" name="weight" class="border-2 border-blue-500 rounded p-1 w-32">
                     </div>
                 </div>
 
             </div>
         </form>
 
-        <div class="w-full h-24 bg-green-100 rounded-b-md flex justify-center items-center gap-x-4 text-white">
+        <div class="w-full h-24 rounded-b-md flex justify-center items-center gap-x-4 text-white">
             <button id="calculate-btn" class="w-40 h-10 bg-emerald-500 rounded-full">Calculate BMI</button>
             <button id="reset-btn" class="w-32 h-10 bg-emerald-900 rounded-full">Reset</button>
         </div>
@@ -152,7 +152,7 @@
 
         <div class="w-full h-10 flex flex-row justify-center align-center border-b-2 bg-gray-300 border-gray rounded-b-md">
             <div class="w-full flex items-center p-2 font-serif">
-                <a href="https://www.nhlbi.nih.gov/sites/default/files/media/docs/bmi_tbl.pdf" class="underline text-blue-800 text-md">View BMI Table</a>
+                <a href="https://www.nhlbi.nih.gov/sites/default/files/media/docs/bmi_tbl.pdf" target="_blank" class="underline text-blue-800 text-md ">View BMI Table</a>
             </div>
         </div>
     </div>
