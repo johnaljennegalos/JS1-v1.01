@@ -28,6 +28,23 @@ function startRecording(){
 
     speechRecognition.interimResults = true
     speechRecognition.continuous = true
+    speechRecognition.lang = 'en-US'
+
+    speechObj.onstart = () => {
+        console.log('Starting Speech recognition...')
+    }
+
+    speechObj.onaudiostart = () => {
+        console.log("Audio detected")
+    }
+
+    speechObj.onerror = (event) => {
+        console.log('Error', event)
+    }
+
+    speechObj.onaudioend = () => {
+        console.log("Ending Speech recognition...")
+    }
 
     speechObj.onresult = transcribe
     speechObj.start()
@@ -49,4 +66,5 @@ function stopRecording(){
     speechObj.stop()
     speechObj = null
     startBtn.textContent = "Start"
+    resultText.textContent = ""
 }
