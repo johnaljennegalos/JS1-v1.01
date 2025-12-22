@@ -59,6 +59,11 @@ function transcribe(event){
         finalTranscript += event.results[i][0].transcript + " "
     }
 
+    let command = finalTranscript.toLowerCase().trim()
+
+
+    commandSearch(command)
+
     resultText.textContent = finalTranscript
 }
 
@@ -67,4 +72,18 @@ function stopRecording(){
     speechObj = null
     startBtn.textContent = "Start"
     resultText.textContent = ""
+}
+
+function commandSearch(command){
+    if(command.includes("open google")){
+        window.open("https://www.google.com")
+    }
+
+    if (command.includes("open spotify")) {
+        window.location.href = "spotify:"; // Tries to launch the Spotify Desktop App
+    }
+
+    if(command.includes("open instagram")) {
+        window.open("https://www.instagram.com")
+    }
 }
