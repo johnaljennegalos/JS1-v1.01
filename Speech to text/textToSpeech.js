@@ -93,4 +93,8 @@ function commandSearch(command){
     if(command.includes("dark mode")) {
         document.body.style.backgroundColor = "black"
     }
+
+    if(command.includes("please don't go")){
+        window.open("https://www.youtube.com/watch?v=DasbEoug8Ik&list=RDDasbEoug8Ik&start_radio=1")
+    }
 }
