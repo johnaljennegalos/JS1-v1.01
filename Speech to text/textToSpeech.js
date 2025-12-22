@@ -38,7 +38,7 @@ function transcribe(event){
         transcript += event.results[i][0].transcript
     }
 
-
+    resultText.textContent = transcript
 }
 
 function stopRecording(){
