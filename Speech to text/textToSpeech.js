@@ -25,6 +25,10 @@ stopBtn.addEventListener('click', (event)=>{
 function startRecording(){
     startBtn.textContent = "Recording..."
     speechObj = new speechRecognition()
+
+    speechRecognition.interimResults = true
+    speechRecognition.continuous = true
+
     speechObj.onresult = transcribe
     speechObj.start()
 }
@@ -32,13 +36,13 @@ function startRecording(){
 function transcribe(event){
     console.log(event)
 
-    let transcript = ""
+    let finalTranscript = ""
 
-    for(let i = event.resultIndex; i < event.results.length; i++){
-        transcript += event.results[i][0].transcript
+    for(let i = 0; i < event.results.length; i++){
+        finalTranscript += event.results[i][0].transcript + " "
     }
 
-    resultText.textContent = transcript
+    resultText.textContent = finalTranscript
 }
 
 function stopRecording(){
