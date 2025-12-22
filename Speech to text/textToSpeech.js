@@ -61,7 +61,6 @@ function transcribe(event){
 
     let command = finalTranscript.toLowerCase().trim()
 
-
     commandSearch(command)
 
     resultText.textContent = finalTranscript
@@ -85,5 +84,13 @@ function commandSearch(command){
 
     if(command.includes("open instagram")) {
         window.open("https://www.instagram.com")
+    }
+
+    if(command.includes("open youtube")){
+        window.open("https://www.youtube.com")
+    }
+
+    if(command.includes("dark mode")) {
+        document.body.style.backgroundColor = "black"
     }
 }
