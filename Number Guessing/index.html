@@ -7,9 +7,29 @@
     <link rel="stylesheet" href="index.css.css">
     <title>Document</title>
 </head>
-<body>
+<body class="flex flex-col h-screen">
+    <header class="w-full h-16 bg-yellow-600 flex justify-center items-center text-white font-mono text-4xl">Number Guessing</header>
 
+    <main class="bg-black flex-grow flex justify-center items-center">
+        <div class="bg-gray-200 w-96 h-96 rounded-lg border-2 border-yellow-500 flex flex-col">
+            <div class="bg-emerald-500 w-full h-32 flex flex-col justify-center items-center rounded-t-lg">
+                <input placeholder="Guess number..." class="h-10 rounded p-2 text-xl">
+                <button class="bg-yellow-500 h-10 p-2 text-xl mt-4 rounded-lg flex justify-center items-center border-2 border-gray-200 text-white font-mono">Guess Number</button>
+            </div>
 
+            <div class="bg-red-500 flex flex-grow flex-col rounded-b-lg">
+                <div class="bg-blue-500 h-40 flex  justify-center items-center">
+                    <div class="w-80 h-28 bg-green-200 text-8xl flex justify-center items-center font-mono">0</div>
+                </div>
+
+                <div class="flex flex-grow bg-white flex justify-center items-center text-3xl font-mono">
+                    result
+                </div>
+            </div>
+
+        </div>
+
+    </main>
 
 
 <script src="index.js"></script>
