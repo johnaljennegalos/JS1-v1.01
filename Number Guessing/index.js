@@ -11,15 +11,34 @@ function generateRandomNumber(){
 
     randomNum.textContent = random
 
-    if(Number(inputEl.value) < random){
-        resultEl.textContent = 'Too low'
-    } else if(Number(inputEl.value) > random){
-        resultEl.textContent = 'Too high'
+    const value = inputEl.value.trim()
+
+    if(value === ""){
+        resultEl.textContent = "You must select a random number!"
+        randomNum.textContent = "0"
     }
 
-    else {
-        resultEl.textContent = 'You Guess it!'
+    if(isNaN(value)){
+        resultEl.textContent = "Input a number!"
+        randomNum.textContent = "0"
+        inputEl.value = ''
+        return
     }
+
+    // if(Number(inputEl.value) < random){
+    //     resultEl.textContent = 'Too low'
+    // } else if(Number(inputEl.value) > random){
+    //     resultEl.textContent = 'Too high'
+    // } else if(isNaN(inputEl.value)){
+    //   resultEl.textContent = 'Input a number!'
+    //   randomNum.textContent = '0'
+    // } else if(inputEl.value === ""){
+    //     resultEl.textContent = 'Blank Input!'
+    //     randomNum.textContent = '0'
+    // }
+    // else {
+    //     resultEl.textContent = 'You Guess it!'
+    // }
 }
 
 function reset(){
