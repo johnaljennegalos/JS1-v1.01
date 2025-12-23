@@ -5,5 +5,8 @@ let resultEl = document.getElementById('result')
 
 function generateRandomNumber(){
     randomNum = Math.floor(Math.random() * 100 + 1)
+    console.log(randomNum)
     return  randomNum;
 }
+
+generateRandomNumber()
