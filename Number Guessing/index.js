@@ -37,11 +37,13 @@ function generateRandomNumber(){
     if(guess < random){
         resultEl.textContent = "Too low!"
         randomNum.textContent = "🔐"
+        inputEl.value = ""
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else if(guess > random){
         resultEl.textContent = "Too high!"
         randomNum.textContent = "🔐"
+        inputEl.value = ""
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else {
@@ -65,6 +67,11 @@ function reset(){
     inputEl.value = ''
     resultEl.textContent = ''
 
+    inputEl.disabled = false
+
+    resetBtn.textContent = 'Reset'
+    resetBtn.style.backgroundColor = "#f59e0b"
+
 }
 
 guessBtn.addEventListener('click', () => {
@@ -75,6 +82,9 @@ guessBtn.addEventListener('click', () => {
     if(tries === 3){
         isPlaying = false
         resultEl.textContent = "Game Over!"
+        resetBtn.style.backgroundColor = "red"
+        inputEl.disabled = true
+        resetBtn.textContent = "Guess again?"
     }
 })
 
