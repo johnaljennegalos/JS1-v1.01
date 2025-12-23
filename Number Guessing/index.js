@@ -17,6 +17,7 @@ function generateRandomNumber(){
     if(value === ""){
         resultEl.textContent = "You must select a random number!"
         randomNum.textContent = "🔐"
+        return
     }
 
     if(isNaN(value)){
