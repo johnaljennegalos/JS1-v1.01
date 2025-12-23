@@ -47,26 +47,20 @@ function generateRandomNumber(){
         isPlaying = false
     }
 
-    // if(Number(inputEl.value) < random){
-    //     resultEl.textContent = 'Too low'
-    // } else if(Number(inputEl.value) > random){
-    //     resultEl.textContent = 'Too high'
-    // } else if(isNaN(inputEl.value)){
-    //   resultEl.textContent = 'Input a number!'
-    //   randomNum.textContent = '0'
-    // } else if(inputEl.value === ""){
-    //     resultEl.textContent = 'Blank Input!'
-    //     randomNum.textContent = '0'
-    // }
-    // else {
-    //     resultEl.textContent = 'You Guess it!'
-    // }
 }
 
 function reset(){
-    randomNum.textContent = '0'
+
+    isPlaying = true
+    tries = 0
+
+    let newRandom =  Math.floor(Math.random() * 100 + 1)
+    random = newRandom
+
+    randomNum.textContent = '🔐'
     inputEl.value = ''
     resultEl.textContent = ''
+
 }
 
 guessBtn.addEventListener('click', () => {
