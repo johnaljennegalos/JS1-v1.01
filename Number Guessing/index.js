@@ -5,6 +5,7 @@ let resultEl = document.getElementById('result')
 let resetBtn = document.getElementById('reset-btn')
 let lifeEl =  document.getElementById('life')
 
+let maxTries = 3
 let tries = 0
 let isPlaying = true
 
@@ -37,10 +38,12 @@ function generateRandomNumber(){
         resultEl.textContent = "Too low!"
         randomNum.textContent = "🔐"
         tries++
+        lifeEl.textContent = `Life: ${maxTries - tries}`
     } else if(guess > random){
         resultEl.textContent = "Too high!"
         randomNum.textContent = "🔐"
         tries++
+        lifeEl.textContent = `Life: ${maxTries - tries}`
     } else {
         resultEl.textContent = "You guess it!"
         randomNum.textContent = random
@@ -53,6 +56,7 @@ function reset(){
 
     isPlaying = true
     tries = 0
+    lifeEl.textContent = "Life: 3"
 
     let newRandom =  Math.floor(Math.random() * 100 + 1)
     random = newRandom
