@@ -5,11 +5,10 @@ let resultEl = document.getElementById('result')
 let resetBtn = document.getElementById('reset-btn')
 let lifeEl =  document.getElementById('life')
 
-function generateRandomNumber(){
-    let random = Math.floor(Math.random() * 100 + 1)
-    console.log(randomNum)
+let tries = 0
+let isPlaying = true
 
-    randomNum.textContent = random
+function generateRandomNumber(){
 
     const value = inputEl.value.trim()
 
@@ -23,6 +22,25 @@ function generateRandomNumber(){
         randomNum.textContent = "0"
         inputEl.value = ''
         return
+    }
+
+    let random = Math.floor(Math.random() * 100 + 1)
+    console.log(randomNum)
+
+    randomNum.textContent = random
+
+    const guess = Number(value)
+
+
+    if(guess < random){
+        resultEl.textContent = "Too low!"
+        tries++
+    } else if(guess > random){
+        resultEl.textContent = "Too high!"
+        tries++
+    } else {
+        resultEl.textContent = "You guess it!"
+        isPlaying = false
     }
 
     // if(Number(inputEl.value) < random){
@@ -47,6 +65,15 @@ function reset(){
     resultEl.textContent = ''
 }
 
-guessBtn.addEventListener('click', generateRandomNumber)
+guessBtn.addEventListener('click', () => {
+    if (isPlaying === true){
+        generateRandomNumber()
+    }
+
+    if(tries === 3){
+        isPlaying = false
+        resultEl.textContent = "Game Over!"
+    }
+})
 
 resetBtn.addEventListener('click', reset)
