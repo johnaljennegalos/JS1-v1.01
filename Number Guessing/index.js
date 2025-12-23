@@ -8,38 +8,41 @@ let lifeEl =  document.getElementById('life')
 let tries = 0
 let isPlaying = true
 
+let random = Math.floor(Math.random() * 100 + 1)
+
 function generateRandomNumber(){
 
     const value = inputEl.value.trim()
 
     if(value === ""){
         resultEl.textContent = "You must select a random number!"
-        randomNum.textContent = "0"
+        randomNum.textContent = "🔐"
     }
 
     if(isNaN(value)){
         resultEl.textContent = "Input a number!"
-        randomNum.textContent = "0"
+        randomNum.textContent = "🔐"
         inputEl.value = ''
         return
     }
 
-    let random = Math.floor(Math.random() * 100 + 1)
-    console.log(randomNum)
 
-    randomNum.textContent = random
+    console.log(random)
 
     const guess = Number(value)
 
 
     if(guess < random){
         resultEl.textContent = "Too low!"
+        randomNum.textContent = "🔐"
         tries++
     } else if(guess > random){
         resultEl.textContent = "Too high!"
+        randomNum.textContent = "🔐"
         tries++
     } else {
         resultEl.textContent = "You guess it!"
+        randomNum.textContent = random
         isPlaying = false
     }
 
