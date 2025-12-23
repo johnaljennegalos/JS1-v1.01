@@ -51,7 +51,6 @@ function generateRandomNumber(){
         randomNum.textContent = random
         isPlaying = false
     }
-
 }
 
 function reset(){
