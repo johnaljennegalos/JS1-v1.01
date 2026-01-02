@@ -18,43 +18,44 @@ let interval
 focusBtn.addEventListener('click', () => {
     currentMode = 'focus'
 
-    focusBtn.style.backgroundColor = '#991b1b'
+    // focusBtn.style.backgroundColor = '#991b1b'
     timeEl.textContent = '25:00'
 
     pauseBtn.disabled = true
 
-    shortBreakBtn.disabled = true
-    longBreakBtn.disabled = true
-    focusBtn.disabled = true
+    // shortBreakBtn.disabled = true
+    // longBreakBtn.disabled = true
+    // focusBtn.disabled = true
 })
 
 shortBreakBtn.addEventListener('click', () => {
     currentMode = 'shortBreak'
-    shortBreakBtn.style.backgroundColor = 'green'
+    // shortBreakBtn.style.backgroundColor = 'green'
 
     timeEl.textContent = '5:00'
 
     pauseBtn.disabled = true
-    focusBtn.disabled = true
-    longBreakBtn.disabled = true
-    shortBreakBtn.disabled = true
+    // focusBtn.disabled = true
+    // longBreakBtn.disabled = true
+    // shortBreakBtn.disabled = true
 })
 
 longBreakBtn.addEventListener('click', () => {
     currentMode = 'longBreak'
-    longBreakBtn.style.backgroundColor = 'red'
+    // longBreakBtn.style.backgroundColor = 'red'
     timeEl.textContent = '10:00'
 
     pauseBtn.disabled = true
-    focusBtn.disabled = true
-    shortBreakBtn.disabled = true
-    longBreakBtn.disabled = true
+    // focusBtn.disabled = true
+    // shortBreakBtn.disabled = true
+    // longBreakBtn.disabled = true
 })
 
 startBtn.addEventListener('click', () => {
     if (currentMode === 'focus') {
         if(!interval) {
             interval = setInterval(FocusTimer, 1000)
+            focusBtn.style.backgroundColor = '#991b1b'
             startBtn.style.backgroundColor = 'white'
             startBtn.style.color = 'black'
             pauseBtn.style.backgroundColor = '#6b7280'
@@ -62,11 +63,13 @@ startBtn.addEventListener('click', () => {
             shortBreakBtn.disabled = true
             longBreakBtn.disabled = true
 
+            focusBtn.disabled = true
             pauseBtn.disabled = false
         }
     } else if(currentMode === 'shortBreak'){
         if(!interval){
             interval = setInterval(shortBreakTimer, 1000)
+            shortBreakBtn.style.backgroundColor = 'green'
             startBtn.style.backgroundColor = 'white'
             startBtn.style.color = 'black'
             pauseBtn.style.backgroundColor = '#6b7280'
@@ -75,10 +78,12 @@ startBtn.addEventListener('click', () => {
             longBreakBtn.disabled = true
 
             pauseBtn.disabled = false
+            shortBreakBtn.disabled = true
         }
     } else if(currentMode === 'longBreak'){
         if(!interval){
             interval = setInterval(longBreakTimer, 1000)
+            longBreakBtn.style.backgroundColor = 'red'
             startBtn.style.backgroundColor = 'white'
             startBtn.style.color = 'black'
             pauseBtn.style.backgroundColor = '#6b7280'
@@ -87,6 +92,7 @@ startBtn.addEventListener('click', () => {
             shortBreakBtn.disabled = true
 
             pauseBtn.disabled = false
+            longBreakBtn.disabled = true
         }
     } else {
         alert("Select a Mode")
