@@ -25,6 +25,8 @@ startBtn.addEventListener('click', () => {
         interval = setInterval(FocusTimer, 1000)
         startBtn.style.backgroundColor = 'white'
         startBtn.style.color = 'black'
+        pauseBtn.style.backgroundColor = '#6b7280'
+        pauseBtn.style.color = '#e5e7eb'
     } else {
         alert("Select Focus Mode to start.")
     }
@@ -37,7 +39,16 @@ function FocusTimer(){
     timeEl.textContent = minutes + ':' + seconds
 }
 
+pauseBtn.addEventListener('click', () => {
+    pauseFocusTimer()
+})
+
 function pauseFocusTimer(){
+    pauseBtn.style.backgroundColor = 'white'
+    pauseBtn.style.color = 'black'
+    startBtn.style.backgroundColor = '#6b7280'
+    startBtn.style.color = '#e5e7eb'
+    startBtn.textContent = 'RESUME'
     clearInterval(interval)
     interval = null
 }
