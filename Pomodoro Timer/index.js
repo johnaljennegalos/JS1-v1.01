@@ -44,6 +44,7 @@ startBtn.addEventListener('click', () => {
             pauseBtn.style.backgroundColor = '#6b7280'
             pauseBtn.style.color = '#e5e7eb'
             shortBreakBtn.disabled = true
+            longBreakBtn.disabled = true
         }
     } else if(currentMode === 'shortBreak'){
         if(!interval){
@@ -52,6 +53,8 @@ startBtn.addEventListener('click', () => {
             startBtn.style.color = 'black'
             pauseBtn.style.backgroundColor = '#6b7280'
             pauseBtn.style.color = '#e5e7eb'
+            focusBtn.disabled = true
+            longBreakBtn.disabled = true
         }
     } else if(currentMode === 'longBreak'){
         if(!interval){
@@ -60,6 +63,8 @@ startBtn.addEventListener('click', () => {
             startBtn.style.color = 'black'
             pauseBtn.style.backgroundColor = '#6b7280'
             pauseBtn.style.color = '#e5e7eb'
+            focusBtn.disabled = true
+            shortBreakBtn.disabled = true
         }
     } else {
         alert("Select a Mode")
@@ -115,5 +120,7 @@ function resetTimer(){
     clearInterval(interval)
     interval = null
 
+    focusBtn.disabled = false
     shortBreakBtn.disabled = false
+    longBreakBtn.disabled = false
 }
