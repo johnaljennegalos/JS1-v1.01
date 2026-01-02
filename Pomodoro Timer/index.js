@@ -36,11 +36,20 @@ startBtn.addEventListener('click', () => {
         pauseBtn.style.backgroundColor = '#6b7280'
         pauseBtn.style.color = '#e5e7eb'
     } else if(currentMode === 'shortBreak'){
-
+        interval = setInterval(shortBreakTimer, 1000)
+        startBtn.style.backgroundColor = 'white'
+        startBtn.style.color = 'black'
+        pauseBtn.style.backgroundColor = '#6b7280'
+        pauseBtn.style.color = '#e5e7eb'
     }
 })
 
-fun
+function shortBreakTimer(){
+    shortBreakLeft = shortBreakLeft - 1
+    minutes = Math.floor(shortBreakLeft / 60)
+    seconds = shortBreakLeft % 60
+    timeEl.textContent = minutes + ':' + seconds
+}
 
 function FocusTimer(){
     FocusTimeLeft = FocusTimeLeft - 1
