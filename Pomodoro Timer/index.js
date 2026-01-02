@@ -92,7 +92,17 @@ function pauseFocusTimer(){
     interval = null
 }
 
+resetBtn.addEventListener('click', () => {
+    resetTimer()
+})
+
 function resetTimer(){
+    timeEl.textContent = '00:00'
+    startBtn.style.backgroundColor = '#6b7280'
+    startBtn.style.color = '#e5e7eb'
+    focusBtn.style.backgroundColor = '#6b7280'
+    shortBreakBtn.style.backgroundColor = '#6b7280'
+    longBreakBtn.style.backgroundColor = '#6b7280'
     clearInterval(interval)
     interval = null
 }
