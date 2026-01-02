@@ -9,6 +9,7 @@ let resetBtn = document.getElementById('reset-btn');
 let currentMode
 let FocusTimeLeft = 1500
 let shortBreakLeft = 300
+let longBreakLeft = 600
 let minutes
 let seconds
 let interval
@@ -26,6 +27,12 @@ shortBreakBtn.addEventListener('click', () => {
     shortBreakBtn.style.backgroundColor = 'green'
 
     timeEl.textContent = '5:00'
+})
+
+longBreakBtn.addEventListener('click', () => {
+    currentMode = 'longBreak'
+    longBreakBtn.style.backgroundColor = 'red'
+    timeEl.textContent = '10:00'
 })
 
 startBtn.addEventListener('click', () => {
