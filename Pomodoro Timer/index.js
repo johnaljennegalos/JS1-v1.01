@@ -97,21 +97,21 @@ function longBreakTimer(){
     longBreakLeft = longBreakLeft - 1
     minutes = Math.floor(longBreakLeft / 60)
     seconds = longBreakLeft % 60
-    timeEl.textContent = minutes + ':' + seconds
+    timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
 }
 
 function shortBreakTimer(){
     shortBreakLeft = shortBreakLeft - 1
     minutes = Math.floor(shortBreakLeft / 60)
     seconds = shortBreakLeft % 60
-    timeEl.textContent = minutes + ':' + seconds
+    timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
 }
 
 function FocusTimer(){
     FocusTimeLeft = FocusTimeLeft - 1
     minutes = Math.floor(FocusTimeLeft / 60)
     seconds = FocusTimeLeft % 60
-    timeEl.textContent = minutes + ':' + seconds
+    timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
 }
 
 pauseBtn.addEventListener('click', () => {
