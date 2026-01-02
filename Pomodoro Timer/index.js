@@ -144,6 +144,10 @@ function resetTimer(){
     clearInterval(interval)
     interval = null
 
+    FocusTimeLeft = 1500
+    shortBreakLeft = 300
+    longBreakLeft = 600
+
     focusBtn.disabled = false
     shortBreakBtn.disabled = false
     longBreakBtn.disabled = false
