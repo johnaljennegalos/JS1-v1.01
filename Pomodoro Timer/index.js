@@ -48,8 +48,21 @@ startBtn.addEventListener('click', () => {
         startBtn.style.color = 'black'
         pauseBtn.style.backgroundColor = '#6b7280'
         pauseBtn.style.color = '#e5e7eb'
+    } else if(currentMode === 'longBreak'){
+        interval = setInterval(longBreakTimer, 1000)
+        startBtn.style.backgroundColor = 'white'
+        startBtn.style.color = 'black'
+        pauseBtn.style.backgroundColor = '#6b7280'
+        pauseBtn.style.color = '#e5e7eb'
     }
 })
+
+function longBreakTimer(){
+    longBreakLeft = longBreakLeft - 1
+    minutes = Math.floor(longBreakLeft / 60)
+    seconds = longBreakLeft % 60
+    timeEl.textContent = minutes + ':' + seconds
+}
 
 function shortBreakTimer(){
     shortBreakLeft = shortBreakLeft - 1
@@ -78,3 +91,4 @@ function pauseFocusTimer(){
     clearInterval(interval)
     interval = null
 }
+
