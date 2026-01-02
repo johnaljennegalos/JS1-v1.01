@@ -23,6 +23,8 @@ focusBtn.addEventListener('click', () => {
 startBtn.addEventListener('click', () => {
     if (currentMode === 'focus') {
         interval = setInterval(FocusTimer, 1000)
+        startBtn.style.backgroundColor = 'white'
+        startBtn.style.color = 'black'
     } else {
         alert("Select Focus Mode to start.")
     }
@@ -34,8 +36,3 @@ function FocusTimer(){
     seconds = FocusTimeLeft % 60
     timeEl.textContent = minutes + ':' + seconds
 }
-//
-//
-// startBtn.addEventListener('click', function(){
-//     interval = setInterval(FocusTimer, 1000)
-// })
