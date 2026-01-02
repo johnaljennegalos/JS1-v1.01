@@ -37,23 +37,32 @@ longBreakBtn.addEventListener('click', () => {
 
 startBtn.addEventListener('click', () => {
     if (currentMode === 'focus') {
-        interval = setInterval(FocusTimer, 1000)
-        startBtn.style.backgroundColor = 'white'
-        startBtn.style.color = 'black'
-        pauseBtn.style.backgroundColor = '#6b7280'
-        pauseBtn.style.color = '#e5e7eb'
+        if(!interval) {
+            interval = setInterval(FocusTimer, 1000)
+            startBtn.style.backgroundColor = 'white'
+            startBtn.style.color = 'black'
+            pauseBtn.style.backgroundColor = '#6b7280'
+            pauseBtn.style.color = '#e5e7eb'
+            shortBreakBtn.disabled = true
+        }
     } else if(currentMode === 'shortBreak'){
-        interval = setInterval(shortBreakTimer, 1000)
-        startBtn.style.backgroundColor = 'white'
-        startBtn.style.color = 'black'
-        pauseBtn.style.backgroundColor = '#6b7280'
-        pauseBtn.style.color = '#e5e7eb'
+        if(!interval){
+            interval = setInterval(shortBreakTimer, 1000)
+            startBtn.style.backgroundColor = 'white'
+            startBtn.style.color = 'black'
+            pauseBtn.style.backgroundColor = '#6b7280'
+            pauseBtn.style.color = '#e5e7eb'
+        }
     } else if(currentMode === 'longBreak'){
-        interval = setInterval(longBreakTimer, 1000)
-        startBtn.style.backgroundColor = 'white'
-        startBtn.style.color = 'black'
-        pauseBtn.style.backgroundColor = '#6b7280'
-        pauseBtn.style.color = '#e5e7eb'
+        if(!interval){
+            interval = setInterval(longBreakTimer, 1000)
+            startBtn.style.backgroundColor = 'white'
+            startBtn.style.color = 'black'
+            pauseBtn.style.backgroundColor = '#6b7280'
+            pauseBtn.style.color = '#e5e7eb'
+        }
+    } else {
+        alert("Select a Mode")
     }
 })
 
@@ -105,4 +114,6 @@ function resetTimer(){
     longBreakBtn.style.backgroundColor = '#6b7280'
     clearInterval(interval)
     interval = null
+
+    shortBreakBtn.disabled = false
 }
