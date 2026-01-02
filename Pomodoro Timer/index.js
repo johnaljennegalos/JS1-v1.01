@@ -92,3 +92,7 @@ function pauseFocusTimer(){
     interval = null
 }
 
+function resetTimer(){
+    clearInterval(interval)
+    interval = null
+}
