@@ -34,6 +34,7 @@ shortBreakBtn.addEventListener('click', () => {
     // shortBreakBtn.style.backgroundColor = 'green'
 
     timeEl.textContent = '5:00'
+    shortBreakLeft = 300
 
     pauseBtn.disabled = true
     // focusBtn.disabled = true
@@ -45,6 +46,7 @@ longBreakBtn.addEventListener('click', () => {
     currentMode = 'longBreak'
     // longBreakBtn.style.backgroundColor = 'red'
     timeEl.textContent = '10:00'
+    longBreakLeft = 300
 
     pauseBtn.disabled = true
     // focusBtn.disabled = true
@@ -183,4 +185,6 @@ function resetTimer(){
     focusBtn.disabled = false
     shortBreakBtn.disabled = false
     longBreakBtn.disabled = false
+
+    startBtn.textContent = "START"
 }
