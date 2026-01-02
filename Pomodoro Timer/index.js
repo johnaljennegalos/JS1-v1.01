@@ -20,6 +20,12 @@ focusBtn.addEventListener('click', () => {
 
     focusBtn.style.backgroundColor = '#991b1b'
     timeEl.textContent = '25:00'
+
+    pauseBtn.disabled = true
+
+    shortBreakBtn.disabled = true
+    longBreakBtn.disabled = true
+    focusBtn.disabled = true
 })
 
 shortBreakBtn.addEventListener('click', () => {
@@ -27,12 +33,22 @@ shortBreakBtn.addEventListener('click', () => {
     shortBreakBtn.style.backgroundColor = 'green'
 
     timeEl.textContent = '5:00'
+
+    pauseBtn.disabled = true
+    focusBtn.disabled = true
+    longBreakBtn.disabled = true
+    shortBreakBtn.disabled = true
 })
 
 longBreakBtn.addEventListener('click', () => {
     currentMode = 'longBreak'
     longBreakBtn.style.backgroundColor = 'red'
     timeEl.textContent = '10:00'
+
+    pauseBtn.disabled = true
+    focusBtn.disabled = true
+    shortBreakBtn.disabled = true
+    longBreakBtn.disabled = true
 })
 
 startBtn.addEventListener('click', () => {
@@ -45,6 +61,8 @@ startBtn.addEventListener('click', () => {
             pauseBtn.style.color = '#e5e7eb'
             shortBreakBtn.disabled = true
             longBreakBtn.disabled = true
+
+            pauseBtn.disabled = false
         }
     } else if(currentMode === 'shortBreak'){
         if(!interval){
@@ -55,6 +73,8 @@ startBtn.addEventListener('click', () => {
             pauseBtn.style.color = '#e5e7eb'
             focusBtn.disabled = true
             longBreakBtn.disabled = true
+
+            pauseBtn.disabled = false
         }
     } else if(currentMode === 'longBreak'){
         if(!interval){
@@ -65,6 +85,8 @@ startBtn.addEventListener('click', () => {
             pauseBtn.style.color = '#e5e7eb'
             focusBtn.disabled = true
             shortBreakBtn.disabled = true
+
+            pauseBtn.disabled = false
         }
     } else {
         alert("Select a Mode")
@@ -117,6 +139,8 @@ function resetTimer(){
     focusBtn.style.backgroundColor = '#6b7280'
     shortBreakBtn.style.backgroundColor = '#6b7280'
     longBreakBtn.style.backgroundColor = '#6b7280'
+    pauseBtn.style.backgroundColor = '#6b7280'
+    pauseBtn.style.color = '#e5e7eb'
     clearInterval(interval)
     interval = null
 
