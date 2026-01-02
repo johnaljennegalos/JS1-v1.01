@@ -20,6 +20,7 @@ focusBtn.addEventListener('click', () => {
 
     // focusBtn.style.backgroundColor = '#991b1b'
     timeEl.textContent = '25:00'
+    FocusTimeLeft = 1500
 
     pauseBtn.disabled = true
 
@@ -65,6 +66,7 @@ startBtn.addEventListener('click', () => {
 
             focusBtn.disabled = true
             pauseBtn.disabled = false
+
         }
     } else if(currentMode === 'shortBreak'){
         if(!interval){
@@ -104,6 +106,14 @@ function longBreakTimer(){
     minutes = Math.floor(longBreakLeft / 60)
     seconds = longBreakLeft % 60
     timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
+
+    if(longBreakLeft === 0){
+        clearInterval(interval)
+        focusBtn.disabled = false
+        shortBreakBtn.disabled = false
+        longBreakBtn.disabled = false
+        interval = null
+    }
 }
 
 function shortBreakTimer(){
@@ -111,6 +121,14 @@ function shortBreakTimer(){
     minutes = Math.floor(shortBreakLeft / 60)
     seconds = shortBreakLeft % 60
     timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
+
+    if(shortBreakLeft === 0){
+        clearInterval(interval)
+        focusBtn.disabled = false
+        shortBreakBtn.disabled = false
+        longBreakBtn.disabled = false
+        interval = null
+    }
 }
 
 function FocusTimer(){
@@ -118,13 +136,21 @@ function FocusTimer(){
     minutes = Math.floor(FocusTimeLeft / 60)
     seconds = FocusTimeLeft % 60
     timeEl.textContent = minutes + ':' + seconds.toString().padStart(2, "0")
+
+    if(FocusTimeLeft === 0){
+        clearInterval(interval)
+        focusBtn.disabled = false
+        shortBreakBtn.disabled = false
+        longBreakBtn.disabled = false
+        interval = null
+    }
 }
 
 pauseBtn.addEventListener('click', () => {
-    pauseFocusTimer()
+    pauseTimer()
 })
 
-function pauseFocusTimer(){
+function pauseTimer(){
     pauseBtn.style.backgroundColor = 'white'
     pauseBtn.style.color = 'black'
     startBtn.style.backgroundColor = '#6b7280'
