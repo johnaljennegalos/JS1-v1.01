@@ -8,6 +8,7 @@ let resetBtn = document.getElementById('reset-btn');
 
 let currentMode
 let FocusTimeLeft = 1500
+let shortBreakLeft = 300
 let minutes
 let seconds
 let interval
@@ -20,6 +21,13 @@ focusBtn.addEventListener('click', () => {
     timeEl.textContent = '25:00'
 })
 
+shortBreakBtn.addEventListener('click', () => {
+    currentMode = 'shortBreak'
+    shortBreakBtn.style.backgroundColor = 'green'
+
+    timeEl.textContent = '5:00'
+})
+
 startBtn.addEventListener('click', () => {
     if (currentMode === 'focus') {
         interval = setInterval(FocusTimer, 1000)
@@ -27,10 +35,12 @@ startBtn.addEventListener('click', () => {
         startBtn.style.color = 'black'
         pauseBtn.style.backgroundColor = '#6b7280'
         pauseBtn.style.color = '#e5e7eb'
-    } else {
-        alert("Select Focus Mode to start.")
+    } else if(currentMode === 'shortBreak'){
+
     }
 })
+
+fun
 
 function FocusTimer(){
     FocusTimeLeft = FocusTimeLeft - 1
