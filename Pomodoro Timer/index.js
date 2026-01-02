@@ -36,3 +36,8 @@ function FocusTimer(){
     seconds = FocusTimeLeft % 60
     timeEl.textContent = minutes + ':' + seconds
 }
+
+function pauseFocusTimer(){
+    clearInterval(interval)
+    interval = null
+}
