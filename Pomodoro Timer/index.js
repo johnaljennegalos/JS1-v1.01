@@ -6,21 +6,36 @@ let startBtn = document.getElementById('start-btn');
 let pauseBtn = document.getElementById('pause-btn');
 let resetBtn = document.getElementById('reset-btn');
 
-
-let timeLeft = 1500
+let currentMode
+let FocusTimeLeft = 1500
 let minutes
 let seconds
 let interval
 
 
-function timer(){
-    timeLeft = timeLeft - 1
-    minutes = Math.floor(timeLeft / 60)
-    seconds = timeLeft % 60
+focusBtn.addEventListener('click', () => {
+    currentMode = 'focus'
+
+    focusBtn.style.backgroundColor = '#991b1b'
+    timeEl.textContent = '25:00'
+})
+
+startBtn.addEventListener('click', () => {
+    if (currentMode === 'focus') {
+        interval = setInterval(FocusTimer, 1000)
+    } else {
+        alert("Select Focus Mode to start.")
+    }
+})
+
+function FocusTimer(){
+    FocusTimeLeft = FocusTimeLeft - 1
+    minutes = Math.floor(FocusTimeLeft / 60)
+    seconds = FocusTimeLeft % 60
     timeEl.textContent = minutes + ':' + seconds
 }
-
-
-startBtn.addEventListener('click', function(){
-    interval = setInterval(timer, 1000)
-})
+//
+//
+// startBtn.addEventListener('click', function(){
+//     interval = setInterval(FocusTimer, 1000)
+// })
