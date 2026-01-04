@@ -45,7 +45,7 @@ function renderExpenses(){
                     <td class="p-2 text-center">${item.amount}</td>
                     <td class="p-2 text-center">${item.item_category}</td>
                     <td class="p-2 text-center">${item.input_date}</td> 
-                    <td id="delete" class="p-2 text-center"><button onclick="deleteExpense(${item.id})" class="bg-red-500 px-3 rounded text-white">DELETE</button></td>  
+                    <td id="delete" class="p-2 text-center"><button onclick="deleteExpense(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">DELETE</button></td>  
                 </tr>
                           `
     })
