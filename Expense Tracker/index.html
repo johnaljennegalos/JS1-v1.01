@@ -12,14 +12,14 @@
     </div>
 
     <div class="w-full h-24 flex justify-center items-center flex-row gap-20">
-        <input placeholder="Expense name" class="border-2 border-black rounded">
-        <input placeholder="Amount" class="border-2 border-black rounded">
+        <input id="expense" placeholder="Expense name" class="border-2 border-black rounded">
+        <input id="amount" placeholder="Amount" class="border-2 border-black rounded">
 
-        <select name="fruits" id="fruits" class="border-2 border-black rounded">
-            <option value="apple">Food</option>
-            <option value="banana">Transpo</option>
-            <option value="orange">Electricity</option>
-            <option value="category" selected>Select Category</option>
+        <select id="category" name="fruits" id="fruits" class="border-2 border-black rounded">
+            <option id="food" data-type="food" value="apple">Food</option>
+            <option id="transpo" data-type="transpo" value="banana">Transpo</option>
+            <option id="electricity" data-type="electricity" value="orange">Electricity</option>
+            <option value="category" selected disabled hidden>Select Category</option>
         </select>
 
         <input type="date" class="border-2 border-black rounded">
