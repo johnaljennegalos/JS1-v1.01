@@ -10,7 +10,7 @@ let formEl = document.getElementById('form');
 let expenseTable = document.getElementById('expenses-list');
 let deleteBtn = document.getElementById('delete');
 
-let expenseList = []
+let expenseList = JSON.parse(localStorage.getItem('expenses')) || [];
 
 addBtn.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -47,8 +47,7 @@ function renderExpenses(){
                     <td class="p-2 text-center">${item.input_date}</td> 
                     <td id="delete" class="p-2 text-center"><button onclick="deleteExpense(${item.id})" class="bg-red-500 px-3 rounded text-white">DELETE</button></td>  
                 </tr>
-        
-                           `
+                          `
     })
 }
 
@@ -60,4 +59,6 @@ function deleteExpense(idToDelete){
     renderExpenses()
 }
 
+
+renderExpenses()
 
