@@ -8,6 +8,7 @@ let dateEl = document.getElementById('date');
 let addBtn = document.getElementById('add-btn');
 let formEl = document.getElementById('form');
 let expenseTable = document.getElementById('expenses-list');
+let deleteBtn = document.getElementById('delete');
 
 let expenseList = []
 
@@ -28,6 +29,7 @@ addBtn.addEventListener('click', (e)=>{
     }
 
     expenseList.push(newExpense);
+    localStorage.setItem('expenses', JSON.stringify(expenseList));
 
     renderExpenses()
 
@@ -39,13 +41,14 @@ function renderExpenses(){
     expenseList.forEach(item => {
         expenseTable.innerHTML += `
                 <tr class="border-b">
-                    <td class="p-2">${item.name}</td>
-                    <td class="p-2">${item.amount}</td>
-                    <td class="p-2">${item.item_category}</td>
-                    <td class="p-2">${item.input_date}</td>   
+                    <td class="p-2 text-center">${item.name}</td>
+                    <td class="p-2 text-center">${item.amount}</td>
+                    <td class="p-2 text-center">${item.item_category}</td>
+                    <td class="p-2 text-center">${item.input_date}</td> 
+                    <td id="delete" class="p-2 text-center"><button class="bg-red-500 px-3 rounded text-white">DELETE</button></td>  
                 </tr>
         
-                                   `
+                           `
     })
 }
 
