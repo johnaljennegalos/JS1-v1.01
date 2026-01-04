@@ -11,21 +11,21 @@
         Expense Tracker
     </div>
 
-    <div class="w-full h-24 flex justify-center items-center flex-row gap-20">
-        <input id="expense" placeholder="Expense name" class="border-2 border-black rounded">
+    <form id="form" class="w-full h-24 flex justify-center items-center flex-row gap-20">
+        <input id="expense-name" placeholder="Expense name" class="border-2 border-black rounded">
         <input id="amount" placeholder="Amount" class="border-2 border-black rounded">
 
         <select id="category" name="category"  class="border-2 border-black rounded">
-            <option id="food" data-type="food" value="apple">Food</option>
-            <option id="transpo" data-type="transpo" value="banana">Transpo</option>
-            <option id="electricity" data-type="electricity" value="orange">Electricity</option>
+            <option id="food" data-type="food" value="food">Food</option>
+            <option id="transpo" data-type="transpo" value="transpo">Transpo</option>
+            <option id="electricity" data-type="electricity" value="electricity">Electricity</option>
             <option value="category" selected disabled hidden>Select Category</option>
         </select>
 
         <input id="date" type="date" class="border-2 border-black rounded">
 
-        <button id="add-btn" class="bg-green-600 px-8 py-1 rounded">ADD</button>
-    </div>
+        <button id="add-btn" type="button" class="bg-green-600 px-8 py-1 rounded">ADD</button>
+    </form>
 
     <div class="w-full">
         <table class="w-full table-fixed border-collapse">
@@ -35,8 +35,12 @@
                     <th class="w-1/3 border">Amount</th>
                     <th class="w-1/3 border">Category</th>
                     <th class="w-1/3 border">Date</th>
+                    <th class="w-1/3 border">Option</th>
                 </tr>
             </thead>
+            <tbody id="expenses-list">
+
+            </tbody>
         </table>
     </div>
 
