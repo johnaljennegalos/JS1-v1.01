@@ -18,6 +18,7 @@ addBtn.addEventListener('click', (event) => {
     const dataAddress = addressEl.value;
 
     const newData = {
+        id: Date.now(),
         name: dataName,
         age: dataAge,
         email: dataEmail,
@@ -25,5 +26,28 @@ addBtn.addEventListener('click', (event) => {
     }
 
     data.push(newData);
-
+    localStorage.setItem('data', JSON.stringify(data));
 })
+
+function renderData(){
+    dataListEl.innerHTML = "";
+
+    dataListEl.forEach((item) => {
+        dataListEl.innerHTML += `
+                    <tr class="border-b">
+                        <td class="p-2 text-center">${item.name}</td>
+                        <td class="p-2 text-center">${item.age}</td>
+                        <td class="p-2 text-center">${item.email}</td>
+                        <td class="p-2 text-center">${item.address}</td> 
+                        <td id="delete" class="p-2 text-center">
+                            <button onclick="deleteData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">DELETE</button>
+                            
+                            <button onclick="editData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">
+                            
+                            </button>
+                        </td>  
+                    </tr>
+        `
+    })
+}
+
