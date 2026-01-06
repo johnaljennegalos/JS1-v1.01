@@ -27,12 +27,14 @@ addBtn.addEventListener('click', (event) => {
 
     data.push(newData);
     localStorage.setItem('data', JSON.stringify(data));
+
+    renderData()
 })
 
 function renderData(){
-    dataListEl.innerHTML = "";
+    dataListEl.innerHTML = ``;
 
-    dataListEl.forEach((item) => {
+    data.forEach((item) => {
         dataListEl.innerHTML += `
                     <tr class="border-b">
                         <td class="p-2 text-center">${item.name}</td>
@@ -42,12 +44,22 @@ function renderData(){
                         <td id="delete" class="p-2 text-center">
                             <button onclick="deleteData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">DELETE</button>
                             
-                            <button onclick="editData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">
-                            
+                            <button onclick="editData(${item.id})" class="bg-yellow-500 lg:px-3 rounded text-white">
+                              EDIT
                             </button>
                         </td>  
                     </tr>
         `
     })
 }
+
+
+function deleteData(idToDelete){
+    data = data.filter(item => item.id !== idToDelete)
+    localStorage.setItem('data', JSON.stringify(data));
+
+    renderData()
+}
+
+renderData()
 
