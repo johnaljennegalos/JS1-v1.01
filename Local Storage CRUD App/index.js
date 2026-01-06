@@ -7,7 +7,7 @@ let addBtn = document.getElementById('add');
 let dataListEl = document.getElementById('data-list');
 
 
-let data = []
+let data = JSON.parse(localStorage.getItem('data')) || []
 
 addBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -59,6 +59,18 @@ function deleteData(idToDelete){
     localStorage.setItem('data', JSON.stringify(data));
 
     renderData()
+}
+
+function editData(idToEdit){
+    data = data.filter(item => item.id !== idToEdit)
+
+    nameEl.value = ''
+    ageEl.value = ''
+    emailEl.value = ''
+    addressEl.value = ''
+    addBtn.textContent = 'SAVE'
+
+    localStorage.setItem('data', JSON.stringify(data));
 }
 
 renderData()
