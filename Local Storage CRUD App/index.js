@@ -19,7 +19,22 @@ addBtn.addEventListener('click', (event) => {
     const dataEmail = emailEl.value;
     const dataAddress = addressEl.value;
 
-    if(dataName === null  || dataName === '') {
+    if(!dataName?.trim()) {
+        openModal()
+        return
+    }
+
+    if(ageEl.value === '') {
+        openModal()
+        return
+    }
+
+    if(!dataEmail?.trim()) {
+        openModal()
+        return
+    }
+
+    if(!dataAddress?.trim()) {
         openModal()
         return
     }
@@ -66,6 +81,7 @@ function renderData(){
 }
 
 
+
 function deleteData(idToDelete){
     data = data.filter(item => item.id !== idToDelete)
     localStorage.setItem('data', JSON.stringify(data));
@@ -87,10 +103,6 @@ function editData(idToEdit){
 
 function openModal(){
     modalEl.classList.remove('hidden');
-
-    // modalEl.addEventListener('mouseenter', () => {
-    //     modalEl.classList.add('hidden');
-    // })
 }
 
 function closeModal(){
