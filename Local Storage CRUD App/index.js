@@ -5,6 +5,8 @@ let emailEl = document.getElementById('email');
 let addressEl = document.getElementById('address');
 let addBtn = document.getElementById('add');
 let dataListEl = document.getElementById('data-list');
+let modalEl = document.getElementById('modal-element');
+let closeModalBtn = document.getElementById('close-modal');
 
 
 let data = JSON.parse(localStorage.getItem('data')) || []
@@ -18,6 +20,7 @@ addBtn.addEventListener('click', (event) => {
     const dataAddress = addressEl.value;
 
     if(dataName === null  || dataName === '') {
+        openModal()
         return
     }
 
@@ -82,9 +85,19 @@ function editData(idToEdit){
     localStorage.setItem('data', JSON.stringify(data));
 }
 
-function modal(){
+function openModal(){
+    modalEl.classList.remove('hidden');
 
+    // modalEl.addEventListener('mouseenter', () => {
+    //     modalEl.classList.add('hidden');
+    // })
 }
+
+function closeModal(){
+    modalEl.classList.add('hidden');
+}
+
+closeModalBtn.addEventListener('click', closeModal)
 
 
 renderData()
