@@ -17,6 +17,10 @@ addBtn.addEventListener('click', (event) => {
     const dataEmail = emailEl.value;
     const dataAddress = addressEl.value;
 
+    if(dataName === null  || dataName === '') {
+        return
+    }
+
     const newData = {
         id: Date.now(),
         name: dataName,
@@ -29,6 +33,11 @@ addBtn.addEventListener('click', (event) => {
     localStorage.setItem('data', JSON.stringify(data));
 
     renderData()
+
+    nameEl.value = '';
+    ageEl.value = '';
+    emailEl.value = '';
+    addressEl.value = '';
 })
 
 function renderData(){
@@ -36,11 +45,11 @@ function renderData(){
 
     data.forEach((item) => {
         dataListEl.innerHTML += `
-                    <tr class="border-b">
-                        <td class="p-2 text-center">${item.name}</td>
-                        <td class="p-2 text-center">${item.age}</td>
-                        <td class="p-2 text-center">${item.email}</td>
-                        <td class="p-2 text-center">${item.address}</td> 
+                    <tr class="border-b border-white">
+                        <td class="p-2 text-center text-white">${item.name}</td>
+                        <td class="p-2 text-center text-white">${item.age}</td>
+                        <td class="p-2 text-center text-white">${item.email}</td>
+                        <td class="p-2 text-center text-white">${item.address}</td> 
                         <td id="delete" class="p-2 text-center">
                             <button onclick="deleteData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">DELETE</button>
                             
@@ -72,6 +81,11 @@ function editData(idToEdit){
 
     localStorage.setItem('data', JSON.stringify(data));
 }
+
+function modal(){
+
+}
+
 
 renderData()
 
