@@ -56,6 +56,8 @@ addBtn.addEventListener('click', (event) => {
     ageEl.value = '';
     emailEl.value = '';
     addressEl.value = '';
+
+    addBtn.textContent = 'ADD';
 })
 
 function renderData(){
@@ -90,33 +92,17 @@ function deleteData(idToDelete){
 }
 
 function editData(idToEdit){
-    data = data.filter(item => item.id !== idToEdit)
+    const itemToEdit = data.find(item => item.id !== idToEdit);
 
-    nameEl.value = ''
-    ageEl.value = ''
-    emailEl.value = ''
-    addressEl.value = ''
+    nameEl.value = itemToEdit.name;
+    ageEl.value = itemToEdit.age
+    emailEl.value = itemToEdit.email
+    addressEl.value = itemToEdit.address
     addBtn.textContent = 'SAVE'
 
-    if(!nameEl?.trim()) {
-        openModal()
-        return
-    }
 
-    if(ageEl.value === '') {
-        openModal()
-        return
-    }
+    data = data.filter(item => item.id !== idToEdit)
 
-    if(!ageEl?.trim()) {
-        openModal()
-        return
-    }
-
-    if(!addressEl?.trim()) {
-        openModal()
-        return
-    }
 
     localStorage.setItem('data', JSON.stringify(data));
 }
