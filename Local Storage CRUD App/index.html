@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
-<body>
+<body class="bg-gray-900 w-full h-auto flex flex-col px-10 gap-2">
+    <div class="w-full h-16 flex justify-start items-end text-3xl text-white font-serif">
+        CRUD Application With Local Storage
+    </div>
 
+    <form class="w-full h-52 grid grid-cols-2 gap-3">
+        <input placeholder="Name" class="border-2 border-gray-300 rounded-md bg-gray-200" type="text">
+        <input placeholder="Name" class="border-2 border-gray-300 rounded-md" type="text">
+        <input placeholder="Name" class="border-2 border-gray-300 rounded-md" type="text">
+        <input placeholder="Name" class="border-2 border-gray-300 rounded-md" type="text">
+        <button class="col-span-2 bg-black text-white p-2">
+            ADD
+        </button>
+    </form>
 </body>
 </html>
