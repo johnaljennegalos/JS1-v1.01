@@ -92,7 +92,7 @@ function deleteData(idToDelete){
 }
 
 function editData(idToEdit){
-    const itemToEdit = data.find(item => item.id !== idToEdit);
+    const itemToEdit = data.find(item => item.id === idToEdit);
 
     nameEl.value = itemToEdit.name;
     ageEl.value = itemToEdit.age
@@ -103,8 +103,8 @@ function editData(idToEdit){
 
     data = data.filter(item => item.id !== idToEdit)
 
-
     localStorage.setItem('data', JSON.stringify(data));
+    renderData()
 }
 
 function openModal(){
