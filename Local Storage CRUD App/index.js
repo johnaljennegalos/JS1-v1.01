@@ -98,6 +98,26 @@ function editData(idToEdit){
     addressEl.value = ''
     addBtn.textContent = 'SAVE'
 
+    if(!nameEl?.trim()) {
+        openModal()
+        return
+    }
+
+    if(ageEl.value === '') {
+        openModal()
+        return
+    }
+
+    if(!ageEl?.trim()) {
+        openModal()
+        return
+    }
+
+    if(!addressEl?.trim()) {
+        openModal()
+        return
+    }
+
     localStorage.setItem('data', JSON.stringify(data));
 }
 
