@@ -70,7 +70,7 @@ function renderData(){
                         <td class="p-2 text-center text-white">${item.age}</td>
                         <td class="p-2 text-center text-white">${item.email}</td>
                         <td class="p-2 text-center text-white">${item.address}</td> 
-                        <td id="delete" class="p-2 text-center">
+                        <td class="p-2 text-center">
                             <button onclick="deleteData(${item.id})" class="bg-red-500 lg:px-3 rounded text-white">DELETE</button>
                             
                             <button onclick="editData(${item.id})" class="bg-yellow-500 lg:px-3 rounded text-white">
@@ -81,6 +81,7 @@ function renderData(){
         `
     })
 }
+
 
 
 
