@@ -1,5 +1,4 @@
 let currentStep = 0
-let topStep = document.querySelectorAll('.top-content')
 let pageContent = document.querySelectorAll('.step-content')
 let nextBtn = document.querySelectorAll('.next-btn')
 let previousBtn = document.querySelectorAll('.previous-btn')
@@ -13,7 +12,7 @@ submitBtn.addEventListener('click', (e) => {
         updateForm()
     }
 
-    topStep.classList.add('hidden')
+    document.querySelector('.top-content').classList.add('hidden')
 })
 
 function updateForm(){
