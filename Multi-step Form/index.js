@@ -1,36 +1,49 @@
 let currentStep = 0
-let topStep = document.querySelectorAll('#top-content')
-let pageContent = document.querySelectorAll('#step-content')
-let nextBtn = document.querySelector('#next-btn')
-let previousBtn = document.querySelector('#previous-btn')
+let topStep = document.querySelectorAll('.top-content')
+let pageContent = document.querySelectorAll('.step-content')
+let nextBtn = document.querySelectorAll('.next-btn')
+let previousBtn = document.querySelectorAll('#previous-btn')
 
 function updateForm(){
     for (let i = 0; i < pageContent.length; i++){
         if(i === currentStep){
-            pageContent.classList.remove('hidden')
+            pageContent[i].classList.remove('hidden')
         } else {
-            pageContent.classList.add('hidden')
+            pageContent[i].classList.add('hidden')
         }
     }
 
-    nextBtn.addEventListener('click', () => {
-        if(validateInput()){
-            currentStep++
-        }
-
-        updateForm()
-    })
-
 }
+
+nextBtn.forEach(btn => {
+    if(validateInput){
+        currentStep++
+    }
+
+    updateForm()
+})
+
+previousBtn.addEventListener('click', () => {
+    currentStep--
+    updateForm()
+})
 
 function validateInput(){
-    let name = document.getElementById('firstname').value
-    let lastname = document.getElementById('lastname').value
-    let dateOfBirth = document.getElementById('dateOfBirth').value
+    let currentDiv = pageContent[currentStep]
+    let inputs = currentDiv.querySelectorAll('input')
 
-    if(name === ''  || lastname === '' || dateOfBirth === ''){
-        return false
-    } else {
-        return true
-    }
+    let isValid = true
+
+    inputs.forEach((input) => {
+        if(input.value.trim() === '') {
+            isValid = false
+            input.style.borderColor = "red";
+        } else {
+            input.style.borderColor = "";
+        }
+    })
+
+    return isValid
 }
+
+updateForm()
