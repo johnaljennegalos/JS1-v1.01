@@ -21,19 +21,20 @@ function updateForm(){
     for (let i = 0; i < pageContent.length; i++){
         if(i === currentStep){
             pageContent[i].classList.remove('hidden')
-            // topContent[i].style.backgroundColor = 'black'
+            topContent[i].style.backgroundColor = '#3b82f6'
         } else {
             pageContent[i].classList.add('hidden')
         }
 
-        if (topContent[i]) {
-            if(i === currentStep){
-                topContent[i].style.backgroundColor = 'black'
-            } else {
-                // Optional: Reset color (if needed)
-                topContent[i].style.backgroundColor = ''
-            }
-        }
+        // if (topContent[i]) {
+        //     if(i === currentStep){
+        //         topContent[i].style.backgroundColor = 'black'
+        //     } else {
+        //         // Optional: Reset color (if needed)
+        //         topContent[i].style.backgroundColor = ''
+        //     }
+        // }
+
 
     }
 
