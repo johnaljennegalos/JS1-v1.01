@@ -2,7 +2,7 @@ let currentStep = 0
 let topStep = document.querySelectorAll('.top-content')
 let pageContent = document.querySelectorAll('.step-content')
 let nextBtn = document.querySelectorAll('.next-btn')
-let previousBtn = document.querySelectorAll('#previous-btn')
+let previousBtn = document.querySelectorAll('.previous-btn')
 
 function updateForm(){
     for (let i = 0; i < pageContent.length; i++){
@@ -16,16 +16,21 @@ function updateForm(){
 }
 
 nextBtn.forEach(btn => {
-    if(validateInput){
-        currentStep++
-    }
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(validateInput()){
+            currentStep++
+        }
 
-    updateForm()
+        updateForm()
+    })
 })
 
-previousBtn.addEventListener('click', () => {
-    currentStep--
-    updateForm()
+previousBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        currentStep--
+        updateForm()
+    })
 })
 
 function validateInput(){
