@@ -3,6 +3,18 @@ let topStep = document.querySelectorAll('.top-content')
 let pageContent = document.querySelectorAll('.step-content')
 let nextBtn = document.querySelectorAll('.next-btn')
 let previousBtn = document.querySelectorAll('.previous-btn')
+let submitBtn = document.getElementById('submit-btn')
+
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    if(validateInput()){
+        currentStep++
+        updateForm()
+    }
+
+    topStep.classList.add('hidden')
+})
 
 function updateForm(){
     for (let i = 0; i < pageContent.length; i++){
