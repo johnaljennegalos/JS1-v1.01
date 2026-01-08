@@ -1,8 +1,10 @@
 let currentStep = 0
+let topContent = document.querySelectorAll('.top-content')
 let pageContent = document.querySelectorAll('.step-content')
 let nextBtn = document.querySelectorAll('.next-btn')
 let previousBtn = document.querySelectorAll('.previous-btn')
 let submitBtn = document.getElementById('submit-btn')
+let mainContent = document.querySelector('.main-content')
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -12,16 +14,27 @@ submitBtn.addEventListener('click', (e) => {
         updateForm()
     }
 
-    document.querySelector('.top-content').classList.add('hidden')
+    mainContent.classList.add('hidden')
 })
 
 function updateForm(){
     for (let i = 0; i < pageContent.length; i++){
         if(i === currentStep){
             pageContent[i].classList.remove('hidden')
+            // topContent[i].style.backgroundColor = 'black'
         } else {
             pageContent[i].classList.add('hidden')
         }
+
+        if (topContent[i]) {
+            if(i === currentStep){
+                topContent[i].style.backgroundColor = 'black'
+            } else {
+                // Optional: Reset color (if needed)
+                topContent[i].style.backgroundColor = ''
+            }
+        }
+
     }
 
 }
