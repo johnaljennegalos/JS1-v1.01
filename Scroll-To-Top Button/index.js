@@ -9,3 +9,11 @@ window.addEventListener('scroll', () => {
         topBtn.classList.add('hidden')
     }
 })
+
+topBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+})
