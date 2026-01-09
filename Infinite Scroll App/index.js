@@ -1,10 +1,34 @@
-
-
+let containerEl = document.getElementById('container');
+let postContainer = document.getElementById('post-container');
+let loader = document.getElementById('loader');
+let circle = document.getElementById('circle');
 
 async function getPost(){
     const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5&_page=1');
-    const data = await response.json();
-    console.log(data);
+    const datas = await response.json();
 
-    return data
+
+
+    datas.forEach((data) => {
+
+        let postDiv = document.createElement('div');
+        postDiv.classList.add('post');
+
+        let titleDiv = document.createElement('h2');
+        titleDiv.textContent = data.title;
+
+        let bodyDiv = document.createElement('p');
+        bodyDiv.textContent = data.body;
+
+        postDiv.appendChild(titleDiv);
+        postDiv.appendChild(bodyDiv);
+
+        postContainer.appendChild(postDiv);
+
+    })
+
+
+    console.log(datas);
 }
+
+getPost();
