@@ -8,5 +8,3 @@ async function getPost(){
 
     return data
 }
-
-getPost();
