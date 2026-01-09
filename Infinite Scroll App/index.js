@@ -17,7 +17,7 @@ async function getPost(){
         postDiv.classList.add('post');
 
         let titleDiv = document.createElement('h2');
-        titleDiv.textContent = data.title;
+        titleDiv.textContent = data.id + "." + data.title;
 
         let bodyDiv = document.createElement('p');
         bodyDiv.textContent = data.body;
