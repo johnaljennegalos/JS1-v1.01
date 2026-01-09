@@ -3,13 +3,15 @@ let postContainer = document.getElementById('post-container');
 let loader = document.querySelector('.loader');
 let circle = document.getElementById('circle');
 
-let page = 1
+let page = 0
 
 async function getPost(){
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page}`);
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`);
     const datas = await response.json();
 
-
+    if(datas.length === 0){
+        observer.disconnect();
+    }
 
     datas.forEach((data) => {
 
@@ -44,4 +46,3 @@ let observer = new IntersectionObserver((entries) => {
 
 observer.observe(loader)
 
-getPost();
