@@ -4,8 +4,15 @@ let loader = document.querySelector('.loader');
 let circle = document.getElementById('circle');
 
 let page = 0
+let isLoading = false
 
 async function getPost(){
+    if(isLoading){
+        return await postContainer.innerText = 'Loading...';
+    } else {
+        isLoading = true;
+    }
+
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`);
     const datas = await response.json();
 
@@ -30,6 +37,8 @@ async function getPost(){
         postContainer.appendChild(postDiv);
 
     })
+
+    isLoading = false;
 
 
     console.log(datas);
