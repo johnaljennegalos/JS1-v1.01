@@ -1,0 +1,1 @@
+let topBtn = document.getElementById('top-btn');
