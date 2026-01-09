@@ -8,7 +8,7 @@ let isLoading = false
 
 async function getPost(){
     if(isLoading){
-        return await postContainer.innerText = 'Loading...';
+        return
     } else {
         isLoading = true;
     }
