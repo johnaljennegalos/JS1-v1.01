@@ -7,7 +7,19 @@ let currentRating = 0
 starEl.forEach((star, index) => {
     star.addEventListener('mouseover',  (event) => {
         event.preventDefault()
-
-        star.style.backgroundColor = 'yellow'
+        
+        for(let i = 0; i < starData.length; i++) {
+            if(i < index){
+                starEl[i].classList.add('active')
+            } else {
+                starEl[i].classList.remove('active')
+            }
+        }
     })
+
+
 })
+
+function startRating(rating) {
+
+}
