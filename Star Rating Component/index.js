@@ -2,7 +2,7 @@ let starEl = document.querySelectorAll('.star')
 
 let starData = Array.from(starEl).map(item => item.getAttribute('data-value'))
 
-let currentRating = 0
+let currentRating = -1
 
 starEl.forEach((star, index) => {
     star.addEventListener('mouseover',  (event) => {
@@ -37,6 +37,12 @@ starEl.forEach((star, index) => {
     })
 })
 
-function startRating(rating) {
+let resetEl = document.getElementById('reset')
 
-}
+resetEl.addEventListener('click', (event) => {
+    currentRating = -1
+
+    starEl.forEach(star => {
+        star.classList.remove('active')
+    })
+})
