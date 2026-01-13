@@ -24,7 +24,7 @@ starEl.forEach((star, index) => {
         console.log(currentRating)
     })
 
-    star.addEventListener('mouseout', (event) => {
+    star.addEventListener('mouseleave', (event) => {
         event.preventDefault()
 
         for(let i = 0; i < starData.length; i++) {

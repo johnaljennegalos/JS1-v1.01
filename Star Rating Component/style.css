@@ -1,3 +1,21 @@
-.star.active{
-    background-color:yellow;
+
+.star-container {
+    display: flex;
+    gap: 10px;
+    font-size: 3rem;
+}
+
+
+.star {
+    cursor: pointer;
+    color: #e4e5e9;
+    transition: color 0.2s ease;
+}
+
+.star.active {
+    color: #ffc107;
+}
+
+.star:hover {
+    transform: scale(1.1);
 }
