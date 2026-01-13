@@ -9,7 +9,7 @@ starEl.forEach((star, index) => {
         event.preventDefault()
         
         for(let i = 0; i < starData.length; i++) {
-            if(i < index){
+            if(i <= index){
                 starEl[i].classList.add('active')
             } else {
                 starEl[i].classList.remove('active')
@@ -17,7 +17,12 @@ starEl.forEach((star, index) => {
         }
     })
 
+    star.addEventListener('click', (event) => {
+        event.preventDefault()
 
+        currentRating = index
+        console.log(currentRating)
+    })
 })
 
 function startRating(rating) {
