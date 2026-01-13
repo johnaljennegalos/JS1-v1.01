@@ -7,7 +7,7 @@ let currentRating = 0
 starEl.forEach((star, index) => {
     star.addEventListener('mouseover',  (event) => {
         event.preventDefault()
-        
+
         for(let i = 0; i < starData.length; i++) {
             if(i <= index){
                 starEl[i].classList.add('active')
@@ -22,6 +22,18 @@ starEl.forEach((star, index) => {
 
         currentRating = index
         console.log(currentRating)
+    })
+
+    star.addEventListener('mouseout', (event) => {
+        event.preventDefault()
+
+        for(let i = 0; i < starData.length; i++) {
+            if(i <= currentRating){
+                starEl[i].classList.add('active')
+            } else{
+                starEl[i].classList.remove('active')
+            }
+        }
     })
 })
 
