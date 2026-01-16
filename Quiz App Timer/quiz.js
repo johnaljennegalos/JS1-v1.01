@@ -8,7 +8,7 @@ const questions = [
     {
         question: "What does CSS stand for?",
         options: ["Cascading Style Sheet", "CasCasSon", "Cascading Style Sheesh"],
-        correct: 1
+        correct: 0
     },
     {
         question: "Which HTML tag is used to define an internal style sheet?",
@@ -37,6 +37,8 @@ let timerInterval = null
 startBtn.addEventListener("click", () => {
     startScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
+
+    score = 0
 
     loadQuestion()
 })
@@ -111,15 +113,15 @@ function showResult(){
     quizScreen.classList.add("hidden");
     resultScreen.classList.remove("hidden");
 
-    finalScore.innerText = `Score: ${Math.floor(score / questions.length) * 100}%`;
+    finalScore.innerText = `Score: ${Math.round(score / questions.length * 100)}%`;
 
-    restartBtn.addEventListener("click", (event) => {
-        clearInterval(timerInterval)
-
-        currentQuestionIndex = 0
-        score = 0
-
-        resultScreen.classList.add("hidden");
-        startScreen.classList.remove("hidden");
-    })
 }
+
+restartBtn.addEventListener("click", (event) => {
+    clearInterval(timerInterval)
+
+    currentQuestionIndex = 0
+
+    resultScreen.classList.add("hidden");
+    startScreen.classList.remove("hidden");
+})
