@@ -49,9 +49,15 @@ function loadQuestion() {
     optionContainer.innerHTML = ""
 
     currentQuestionData.options.forEach(option => {
-        let questionDiv = document.createElement("div");
+        let questionDiv = document.createElement("button");
 
+        questionDiv.classList.add("quizBox");
 
+        questionDiv.innerText = option
+
+        optionContainer.appendChild(questionDiv);
+
+        console.log(option)
     })
 
 
