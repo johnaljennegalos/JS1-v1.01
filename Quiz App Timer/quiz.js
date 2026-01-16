@@ -79,7 +79,7 @@ function loadQuestion() {
         console.log(option)
 
         questionDiv.addEventListener("click", (event) => {
-            checkAnswer()
+            checkAnswer(index)
         })
 
     })
@@ -88,7 +88,9 @@ function loadQuestion() {
 }
 
 function checkAnswer(index) {
-    if(index === questions[currentQuestionIndex].correct){
+
+    const correctIndex = questions[currentQuestionIndex].correct
+    if(index === correctIndex){
         score++
     }
 
@@ -101,4 +103,23 @@ function checkAnswer(index) {
     if(currentQuestionIndex >= questions.length){
         showResult()
     }
+}
+
+function showResult(){
+    clearInterval(timerInterval)
+
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
+
+    finalScore.innerText = `Score: ${Math.floor(score / questions.length) * 100}%`;
+
+    restartBtn.addEventListener("click", (event) => {
+        clearInterval(timerInterval)
+
+        currentQuestionIndex = 0
+        score = 0
+
+        resultScreen.classList.add("hidden");
+        startScreen.classList.remove("hidden");
+    })
 }
