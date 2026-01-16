@@ -58,7 +58,22 @@ function loadQuestion() {
         optionContainer.appendChild(questionDiv);
 
         console.log(option)
+
+        checkAnswer()
     })
+}
 
+function checkAnswer(index) {
+    if(index === questions[currentQuestionIndex]){
+        score++
+        currentQuestionIndex++
+    }
 
+    if(currentQuestionIndex < questions.length){
+        loadQuestion()
+    }
+
+    if(currentQuestionIndex >= questions.length){
+        showResult()
+    }
 }
