@@ -8,13 +8,13 @@
 </head>
 <body class="bg-gray-950 w-screen h-screen flex flex-col justify-center items-center">
     <main class="max-w-lg mx-auto shadow-lg  rounded-lg bg-gray-100">
-        <div id="start-screen" class="p-8 text-center flex flex-col gap-4 hidden">
+        <div id="start-screen" class="p-8 text-center flex flex-col gap-4">
             <h1 class="text-3xl font-bold">Quiz App</h1>
             <p>Welcome to our Quiz App. Lets start our Quiz.</p>
-            <button class="bg-blue-600 text-white py-2 px-2 rounded hover:bg-blue-700">START</button>
+            <button id="startbtn" class="bg-blue-600 text-white py-2 px-2 rounded hover:bg-blue-700">START</button>
         </div>
 
-        <div id="quiz-screen" class="p-8">
+        <div id="quiz-screen" class="p-8 hidden">
             <h1 class="flex justify-between"><span>Question 1/5</span><span id="time-left"></span></h1>
             <h2 id="question-text" class="font-bold mb-6"></h2>
 
@@ -30,5 +30,7 @@
             <button id="restart-btn" class="bg-blue-600 text-white py-2 px-2 rounded hover:bg-blue-700">RESTART</button>
         </div>
     </main>
+
+    <script src="quiz.js"></script>
 </body>
 </html>
