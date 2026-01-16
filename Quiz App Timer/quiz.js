@@ -34,4 +34,25 @@ let timerInterval = null
 startBtn.addEventListener("click", () => {
     startScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
+
+    loadQuestion()
 })
+
+
+function loadQuestion() {
+    console.log(questions)
+
+    const currentQuestionData = questions[currentQuestionIndex];
+
+    questionText.innerText = currentQuestionData.question;
+
+    optionContainer.innerHTML = ""
+
+    currentQuestionData.options.forEach(option => {
+        let questionDiv = document.createElement("div");
+
+
+    })
+
+
+}
