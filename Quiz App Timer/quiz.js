@@ -25,6 +25,9 @@ let optionContainer = document.getElementById("option-container");
 let resultScreen = document.getElementById("result-screen");
 let finalScore = document.getElementById("final-score");
 let restartBtn = document.getElementById("restart-btn");
+let questionNumber = document.getElementById("question-number");
+let timeLeft = document.getElementById("time-left");
+let timeRight = document.getElementById("time-right");
 
 let currentQuestionIndex = 0;
 let score = 0
@@ -41,33 +44,55 @@ startBtn.addEventListener("click", () => {
 
 function loadQuestion() {
     console.log(questions)
+    clearInterval(timerInterval)
+
+    remainingTime = 15
 
     const currentQuestionData = questions[currentQuestionIndex];
 
+    timeLeft.innerText = `Time Left: ${remainingTime}`
+
+    timerInterval = setInterval(() => {
+        remainingTime--
+        timeLeft.innerText = `Time Left: ${remainingTime}`;
+
+        if(remainingTime === 0){
+            clearInterval(timerInterval)
+            checkAnswer(-1)
+        }
+    }, 1000)
+
     questionText.innerText = currentQuestionData.question;
+
+    questionNumber.innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
 
     optionContainer.innerHTML = ""
 
-    currentQuestionData.options.forEach(option => {
+    currentQuestionData.options.forEach((option, index) => {
         let questionDiv = document.createElement("button");
 
         questionDiv.classList.add("quizBox");
 
         questionDiv.innerText = option
-
         optionContainer.appendChild(questionDiv);
 
         console.log(option)
 
-        checkAnswer()
+        questionDiv.addEventListener("click", (event) => {
+            checkAnswer()
+        })
+
     })
+
+
 }
 
 function checkAnswer(index) {
-    if(index === questions[currentQuestionIndex]){
+    if(index === questions[currentQuestionIndex].correct){
         score++
-        currentQuestionIndex++
     }
+
+    currentQuestionIndex++
 
     if(currentQuestionIndex < questions.length){
         loadQuestion()
