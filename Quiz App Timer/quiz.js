@@ -18,9 +18,20 @@ const questions = [
 ]
 
 let startBtn = document.getElementById("startbtn");
+let startScreen = document.getElementById("start-screen");
 let quizScreen = document.getElementById("quiz-screen");
 let questionText = document.getElementById("question-text");
 let optionContainer = document.getElementById("option-container");
 let resultScreen = document.getElementById("result-screen");
 let finalScore = document.getElementById("final-score");
 let restartBtn = document.getElementById("restart-btn");
+
+let currentQuestionIndex = 0;
+let score = 0
+let remainingTime = 15
+let timerInterval = null
+
+startBtn.addEventListener("click", () => {
+    startScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+})
