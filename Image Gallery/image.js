@@ -6,6 +6,14 @@ let thumbs = document.querySelectorAll('.thumb')
 
 thumbs.forEach(thumb => {
     thumb.addEventListener('click', event => {
+
         mainImg.src = thumb.getAttribute('src')
+    })
+})
+
+rightBtn.addEventListener('click', event => {
+    scrollContainer.scrollBy({
+        left: 300,
+        behavior: 'smooth'
     })
 })
