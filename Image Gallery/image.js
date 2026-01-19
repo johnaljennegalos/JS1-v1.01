@@ -13,7 +13,14 @@ thumbs.forEach(thumb => {
 
 rightBtn.addEventListener('click', event => {
     scrollContainer.scrollBy({
-        left: 300,
+        left: 100,
+        behavior: 'smooth'
+    })
+})
+
+leftBtn.addEventListener('click', event => {
+    scrollContainer.scrollBy({
+        left: -100,
         behavior: 'smooth'
     })
 })
