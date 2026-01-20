@@ -4,11 +4,24 @@ const leftBtn = document.getElementById('left-btn')
 const rightBtn = document.getElementById('right-btn')
 let thumbs = document.querySelectorAll('.thumb')
 
-thumbs.forEach(thumb => {
-    thumb.addEventListener('click', event => {
+let currentIndex = 0
 
-        mainImg.src = thumb.getAttribute('src')
-    })
+function updateImage(index){
+    if(index >= thumbs.length){
+        index = 0
+    }
+
+    currentIndex = index
+
+    thumbs[index].getAttribute('src')
+}
+
+setInterval(() => {
+    updateImage(currentIndex += 1);
+}, 3000)
+
+thumbs.forEach(thumb => {
+
 })
 
 rightBtn.addEventListener('click', event => {
