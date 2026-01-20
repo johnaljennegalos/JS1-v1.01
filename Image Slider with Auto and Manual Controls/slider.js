@@ -5,24 +5,36 @@ const rightBtn = document.getElementById('right-btn')
 let thumbs = document.querySelectorAll('.thumb')
 
 let currentIndex = 0
+let sliderInterval
 
 function updateImage(index){
     if(index >= thumbs.length){
         index = 0
     }
 
+    if(index < 0){
+        index = thumbs.length - 1
+    }
+
     currentIndex = index
 
-    thumbs[index].getAttribute('src')
+    mainImg.src = thumbs[currentIndex].getAttribute('src')
 }
 
-setInterval(() => {
-    updateImage(currentIndex += 1);
-}, 3000)
-
-thumbs.forEach(thumb => {
-
+thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        updateImage(index)
+        startTimer()
+    })
 })
+
+function startTimer(){
+    clearInterval(sliderInterval)
+
+    sliderInterval = setInterval(() => {
+        updateImage(currentIndex += 1);
+    }, 3000)
+}
 
 rightBtn.addEventListener('click', event => {
     scrollContainer.scrollBy({
@@ -37,3 +49,5 @@ leftBtn.addEventListener('click', event => {
         behavior: 'smooth'
     })
 })
+
+startTimer()
