@@ -4,6 +4,7 @@ let resultSpan = document.getElementById('result-span');
 
 copyBtn.addEventListener('click', (event) => {
     copyText()
+    copyInput.value = '';
 })
 
 function copyText() {
@@ -14,4 +15,5 @@ function copyText() {
     console.log('Copied!')
 
     resultSpan.textContent = copyInput.value
+
 }
