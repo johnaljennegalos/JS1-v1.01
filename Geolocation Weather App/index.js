@@ -14,6 +14,10 @@ findMeButton.addEventListener('click', () => {
 
 function success(pos){
     console.log(pos)
+    const crd = pos.coords
+
+    longitudeEl.textContent = crd.longitude
+    latitudeEl.textContent = crd.latitude
 }
 
 function error(err){
