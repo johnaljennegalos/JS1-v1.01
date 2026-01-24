@@ -3,6 +3,7 @@ let dataBox = document.querySelectorAll('.data-box')
 let latitudeEl = document.getElementById('latitude');
 let longitudeEl = document.getElementById('longitude');
 let mapLink = document.getElementById('map-link');
+let weatherEl =  document.getElementById('weather');
 
 findMeButton.addEventListener('click', () => {
     if(navigator.geolocation) {
@@ -41,6 +42,8 @@ async function getWeather(lat, lang){
         let response = await url.json()
 
         console.log(response)
+
+        weatherEl.textContent = response.current_weather.temperature
 
 
     } catch(error) {
