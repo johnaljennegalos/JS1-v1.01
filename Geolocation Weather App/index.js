@@ -18,6 +18,11 @@ function success(pos){
 
     longitudeEl.textContent = crd.longitude
     latitudeEl.textContent = crd.latitude
+
+    mapLink.href = `https://www.google.com/maps?q=${crd.latitude},${crd.longitude}`
+
+    mapLink.classList.remove('hidden')
+    mapLink.target = '_blank'
 }
 
 function error(err){
