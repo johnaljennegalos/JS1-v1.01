@@ -21,10 +21,14 @@ function success(pos){
 
     mapLink.href = `https://www.google.com/maps?q=${crd.latitude},${crd.longitude}`
 
-    mapLink.classList.remove('hidden')
-    mapLink.target = '_blank'
+    mapUI()
 }
 
 function error(err){
     console.log("Error", err)
+}
+
+function mapUI(){
+    mapLink.classList.remove('hidden')
+    mapLink.target = '_blank'
 }
