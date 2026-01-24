@@ -24,6 +24,7 @@ function success(pos){
     mapUI()
 }
 
+
 function error(err){
     console.log("Error", err)
 }
@@ -31,4 +32,15 @@ function error(err){
 function mapUI(){
     mapLink.classList.remove('hidden')
     mapLink.target = '_blank'
+}
+
+async function getWeather(lat, lang){
+    try {
+        let url = await fetch(url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`)
+        let response = await url.json()
+
+
+    } catch(error) {
+        console.log(error)
+    }
 }
