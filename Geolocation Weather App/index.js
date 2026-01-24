@@ -6,8 +6,16 @@ let mapLink = document.getElementById('map-link');
 
 findMeButton.addEventListener('click', () => {
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition()
+        navigator.geolocation.getCurrentPosition(success, error)
     } else {
         console.log("Browser not supported")
     }
 })
+
+function success(pos){
+    console.log(pos)
+}
+
+function error(err){
+    console.log("Error", err)
+}
