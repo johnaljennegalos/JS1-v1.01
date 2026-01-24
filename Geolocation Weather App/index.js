@@ -36,15 +36,14 @@ function mapUI(){
     mapLink.target = '_blank'
 }
 
-async function getWeather(lat, lang){
+async function getWeather(lat, lng){
     try {
-        let url = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lang}&current_weather=true`)
+        let url = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`)
         let response = await url.json()
 
         console.log(response)
 
         weatherEl.textContent = response.current_weather.temperature
-
 
     } catch(error) {
         console.log(error)
