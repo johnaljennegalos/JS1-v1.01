@@ -22,6 +22,7 @@ function success(pos){
     mapLink.href = `https://www.google.com/maps?q=${crd.latitude},${crd.longitude}`
 
     mapUI()
+    getWeather(crd.latitude, crd.longitude)
 }
 
 
@@ -36,8 +37,10 @@ function mapUI(){
 
 async function getWeather(lat, lang){
     try {
-        let url = await fetch(url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`)
+        let url = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lang}&current_weather=true`)
         let response = await url.json()
+
+        console.log(response)
 
 
     } catch(error) {
