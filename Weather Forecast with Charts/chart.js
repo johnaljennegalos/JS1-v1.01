@@ -20,11 +20,18 @@ async function getForecast(){
         let rawTime = result.hourly.time
         let rawTemp = result.hourly.temperature_2m
 
-        let next24hours = rawTime.slice(0, 24)
+        let next24hours = rawTime.slice(0, 24).map(timestring => {
+            let date = new Date(timestring);
+
+            return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+        })
+
         let next24temp = rawTemp.slice(0, 24)
 
         myChart.data.labels = next24hours
         myChart.data.datasets[0].data = next24temp
+
+        myChart.update();
 
         console.log(result);
 
@@ -34,4 +41,3 @@ async function getForecast(){
 }
 
 getForecast()
-myChart.update();
