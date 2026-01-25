@@ -36,6 +36,8 @@ function mapUI(){
     mapLink.target = '_blank'
 }
 
+//This time, next year, I will be a Software Engineer
+
 async function getWeather(lat, lng){
     try {
         let url = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current_weather=true`)
