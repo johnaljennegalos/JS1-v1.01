@@ -5,7 +5,7 @@ const myChart = new Chart(chartCanvas, {
     data: {
         labels: ['1 PM', '2 PM', '3 PM', '4 PM', '5 PM'],
         datasets: [{
-            labels: 'Temperature',
+            labels: 'Temperatures',
             data: [20, 22, 19, 24, 25],
             borderWidth: 1
         }]
@@ -23,6 +23,9 @@ async function getForecast(){
         let next24hours = rawTime.slice(0, 24)
         let next24temp = rawTemp.slice(0, 24)
 
+        myChart.data.labels = next24hours
+        myChart.data.datasets[0].data = next24temp
+
         console.log(result);
 
     } catch (error) {
@@ -31,3 +34,4 @@ async function getForecast(){
 }
 
 getForecast()
+myChart.update();
