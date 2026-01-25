@@ -1,13 +1,19 @@
 let chartCanvas =  document.getElementById('chart-canvas');
+let inputEl = document.getElementById('input');
+let searchBtn =  document.getElementById('search-button');
 
 const myChart = new Chart(chartCanvas, {
     type: 'line',
     data: {
         labels: ['1 PM', '2 PM', '3 PM', '4 PM', '5 PM'],
         datasets: [{
-            labels: 'Temperatures',
+            label: 'Temperature',
             data: [20, 22, 19, 24, 25],
-            borderWidth: 1
+            borderColor: '#38bdf8',     // Light Blue (Tailwind Sky-400)
+            backgroundColor: 'rgba(56, 189, 248, 0.2)', // Same blue but transparent
+            borderWidth: 2,
+            fill: true,                 // Fills the area under the line
+            tension: 0.4
         }]
     }
 })
