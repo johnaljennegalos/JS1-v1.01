@@ -11,3 +11,15 @@ const myChart = new Chart(chartCanvas, {
         }]
     }
 })
+
+async function getForecast(){
+    try {
+        let data = await fetch('https://api.open-meteo.com/v1/forecast?latitude=13.19&longitude=123.73&hourly=temperature_2m')
+        let result = await data.json();
+
+        console.log(result);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
