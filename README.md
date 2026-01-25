@@ -85,7 +85,7 @@ These projects were built without frameworks to ensure a deep understanding of c
 
 * **Languages:** JavaScript (ES6+), HTML5, CSS3.
 * **APIs:** OpenMeteo, Geocoding, OMDb, TheMealDB, Web Speech API, LocalStorage, Geolocation.
-* **Tools:** Git, VS Code, Chrome DevTools.
+* **Tools:** Git, PHP Storm, Chrome DevTools.
 * **Libraries:** Chart.js (Used in Advanced Weather App).
 
 ---
