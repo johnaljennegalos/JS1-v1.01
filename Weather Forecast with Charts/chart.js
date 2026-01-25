@@ -17,9 +17,17 @@ async function getForecast(){
         let data = await fetch('https://api.open-meteo.com/v1/forecast?latitude=13.19&longitude=123.73&hourly=temperature_2m')
         let result = await data.json();
 
+        let rawTime = result.hourly.time
+        let rawTemp = result.hourly.temperature_2m
+
+        let next24hours = rawTime.slice(0, 24)
+        let next24temp = rawTemp.slice(0, 24)
+
         console.log(result);
 
     } catch (error) {
         console.error(error);
     }
 }
+
+getForecast()
