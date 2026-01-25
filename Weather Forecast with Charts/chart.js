@@ -9,10 +9,10 @@ const myChart = new Chart(chartCanvas, {
         datasets: [{
             label: 'Temperature',
             data: [20, 22, 19, 24, 25],
-            borderColor: '#38bdf8',     // Light Blue (Tailwind Sky-400)
-            backgroundColor: 'rgba(56, 189, 248, 0.2)', // Same blue but transparent
+            borderColor: '#38bdf8',
+            backgroundColor: 'rgba(56, 189, 248, 0.2)',
             borderWidth: 2,
-            fill: true,                 // Fills the area under the line
+            fill: true,
             tension: 0.4
         }]
     }
@@ -54,10 +54,17 @@ async function searchCity(){
 
         let results = await data.json();
 
-        let newLat = results.results[0].latitude
-        let newLng = results.results[0].longitude
+        if(results.results){
+            let newLat = results.results[0].latitude
+            let newLng = results.results[0].longitude
 
-        getForecast(newLat, newLng)
+            console.log("Switching to:", results.results[0].name);
+
+            getForecast(newLat, newLng)
+        } else{
+            console.error("City not found! Please check spelling.");
+            alert("City not found!")
+        }
 
         console.log(results);
 
@@ -67,3 +74,5 @@ async function searchCity(){
 }
 
 searchBtn.addEventListener('click', searchCity)
+
+getForecast(13.19, 123.73);
