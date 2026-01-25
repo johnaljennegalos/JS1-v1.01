@@ -46,13 +46,18 @@ async function getForecast(lat, lng){
     }
 }
 
-async function searchCity(lat, lng){
+async function searchCity(){
     let input = inputEl.value
 
     try {
         let data = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=1`)
 
         let results = await data.json();
+
+        let newLat = results.results[0].latitude
+        let newLng = results.results[0].longitude
+
+        getForecast(newLat, newLng)
 
         console.log(results);
 
@@ -61,6 +66,4 @@ async function searchCity(lat, lng){
     }
 }
 
-
-
-getForecast(lat, lng)
+searchBtn.addEventListener('click', searchCity)
