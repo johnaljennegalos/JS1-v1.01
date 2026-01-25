@@ -1,0 +1,1 @@
+let chartCanvas =  document.getElementById('chart-canvas');
