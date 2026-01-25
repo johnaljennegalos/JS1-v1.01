@@ -18,9 +18,9 @@ const myChart = new Chart(chartCanvas, {
     }
 })
 
-async function getForecast(){
+async function getForecast(lat, lng){
     try {
-        let data = await fetch('https://api.open-meteo.com/v1/forecast?latitude=13.19&longitude=123.73&hourly=temperature_2m')
+        let data = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&hourly=temperature_2m`)
         let result = await data.json();
 
         let rawTime = result.hourly.time
@@ -46,4 +46,21 @@ async function getForecast(){
     }
 }
 
-getForecast()
+async function searchCity(lat, lng){
+    let input = inputEl.value
+
+    try {
+        let data = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=1`)
+
+        let results = await data.json();
+
+        console.log(results);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+getForecast(lat, lng)
