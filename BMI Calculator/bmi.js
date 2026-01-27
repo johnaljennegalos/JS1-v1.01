@@ -71,16 +71,17 @@ resetBtn.addEventListener('click', (event) => {
 
 function calculateBMI() {
 
-    let underweight = document.getElementById('underweight')
-    let healthy =  document.getElementById('healthy')
-    let overweight = document.getElementById('overweight')
-    let obese = document.getElementById('obese')
+    // let underweight = document.getElementById('underweight')
+    // let healthy =  document.getElementById('healthy')
+    // let overweight = document.getElementById('overweight')
+    // let obese = document.getElementById('obese')
 
-    underweight.style.backgroundColor = ""
-    healthy.style.backgroundColor = ""
-    overweight.style.backgroundColor = ""
-    obese.style.backgroundColor = ""
+    // underweight.style.backgroundColor = ""
+    // healthy.style.backgroundColor = ""
+    // overweight.style.backgroundColor = ""
+    // obese.style.backgroundColor = ""
 
+    resetUI()
 
     if(!metricContainer.classList.contains('hide')){
         let c = centimeterEl.value
