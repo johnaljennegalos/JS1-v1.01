@@ -37,32 +37,34 @@ calculateBtn.addEventListener('click', (event) => {
     calculateBMI()
 })
 
+let underweight = document.getElementById('underweight')
+let healthy =  document.getElementById('healthy')
+let overweight = document.getElementById('overweight')
+let obese = document.getElementById('obese')
+
+function resetUI(){
+    underweight.style.backgroundColor = ""
+    healthy.style.backgroundColor = ""
+    overweight.style.backgroundColor = ""
+    obese.style.backgroundColor = ""
+}
+
 resetBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
-    let underweight = document.getElementById('underweight')
-    let healthy =  document.getElementById('healthy')
-    let overweight = document.getElementById('overweight')
-    let obese = document.getElementById('obese')
 
     if(!metricContainer.classList.contains('hide')){
         centimeterEl.value = ""
         weightEl.value = ""
 
-        underweight.style.backgroundColor = ""
-        healthy.style.backgroundColor = ""
-        overweight.style.backgroundColor = ""
-        obese.style.backgroundColor = ""
+        resetUI()
 
     } else if(!standardContainer.classList.contains('hide')){
         poundsEl.value = ""
         inchEl.value = "0"
         feetEl.value = "3"
 
-        underweight.style.backgroundColor = ""
-        healthy.style.backgroundColor = ""
-        overweight.style.backgroundColor = ""
-        obese.style.backgroundColor = ""
+        resetUI()
     }
 })
 
