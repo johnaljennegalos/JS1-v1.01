@@ -22,13 +22,16 @@ let bmiResult = document.getElementById('bmi-result')
 standardBtn2.addEventListener('click', (event) => {
     event.preventDefault();
 
+    display()
+})
+
+function display(){
     standardContainer.classList.remove('hide')
     metricContainer.classList.add('hide')
-})
+}
 
 calculateBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log('button click')
 
     calculateBMI()
 })
