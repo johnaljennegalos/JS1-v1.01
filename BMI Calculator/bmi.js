@@ -23,6 +23,7 @@ standardBtn2.addEventListener('click', (event) => {
     event.preventDefault();
 
     display()
+    //added a seperate logic for UI
 })
 
 function display(){
