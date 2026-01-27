@@ -71,37 +71,14 @@ resetBtn.addEventListener('click', (event) => {
 
 function calculateBMI() {
 
-    // let underweight = document.getElementById('underweight')
-    // let healthy =  document.getElementById('healthy')
-    // let overweight = document.getElementById('overweight')
-    // let obese = document.getElementById('obese')
-
-    // underweight.style.backgroundColor = ""
-    // healthy.style.backgroundColor = ""
-    // overweight.style.backgroundColor = ""
-    // obese.style.backgroundColor = ""
-
     resetUI()
 
     if(!metricContainer.classList.contains('hide')){
-        let c = centimeterEl.value
-        let w = weightEl.value
 
-        let r = (w * 10000) / Math.pow(c, 2)
-
-        bmiResult.textContent = r.toFixed(2)
-
-
+        calculateMetric()
 
     } else if(!standardContainer.classList.contains('hide')){
-        let p = Number(poundsEl.value)
-        let i = Number(inchEl.value)
-        let f = Number(feetEl.value)
-
-        let h = (f * 12) + i
-        let r = (p / Math.pow(h, 2)) * 703
-
-        bmiResult.textContent = r.toFixed(2)
+        calculateStandard()
     }
 
     if(bmiResult.textContent <= 18.5){
@@ -115,3 +92,22 @@ function calculateBMI() {
     }
 }
 
+function calculateMetric(){
+    let c = centimeterEl.value
+    let w = weightEl.value
+
+    let r = (w * 10000) / Math.pow(c, 2)
+
+    bmiResult.textContent = r.toFixed(2)
+}
+
+function calculateStandard(){
+    let p = Number(poundsEl.value)
+    let i = Number(inchEl.value)
+    let f = Number(feetEl.value)
+
+    let h = (f * 12) + i
+    let r = (p / Math.pow(h, 2)) * 703
+
+    bmiResult.textContent = r.toFixed(2)
+}
