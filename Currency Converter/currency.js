@@ -7,6 +7,11 @@
     let displayEl = document.getElementById('currDisplay')
 
 
+    function removeHidden(){
+        displayEl.classList.remove('hidden')
+        displayEl.innerHTML = ''
+    }
+
     formEl.addEventListener('submit', (event)=>{
         event.preventDefault()
 
@@ -21,8 +26,7 @@
 
         if(selectedCurrency === 'USD - US Dollars') {
 
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+            removeHidden()
 
             let resultP = document.createElement('p')
 
