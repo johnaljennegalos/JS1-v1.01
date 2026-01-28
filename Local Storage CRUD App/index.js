@@ -61,6 +61,10 @@ addBtn.addEventListener('click', (event) => {
 })
 
 function renderData(){
+    dataDisplay()
+}
+
+function dataDisplay(){
     dataListEl.innerHTML = ``;
 
     data.forEach((item) => {
