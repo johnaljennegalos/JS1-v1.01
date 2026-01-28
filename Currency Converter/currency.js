@@ -35,8 +35,7 @@
             displayEl.appendChild(resultP)
         } else if(selectedCurrency === 'EUR - European Dollars') {
 
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+            removeHidden()
 
             let resultP = document.createElement('p')
 
@@ -44,8 +43,8 @@
 
             displayEl.appendChild(resultP)
         } else if(selectedCurrency === 'JPY - Japanese Yen') {
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+
+            removeHidden()
 
             let resultP = document.createElement('p')
 
@@ -53,8 +52,8 @@
 
             displayEl.appendChild(resultP)
         } else if(selectedCurrency === 'SGD - Singapore Dollar') {
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+
+            removeHidden()
 
             let resultP = document.createElement('p')
 
@@ -62,8 +61,8 @@
 
             displayEl.appendChild(resultP)
         } else if(selectedCurrency === 'SAR - Saudi Riyal') {
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+
+            removeHidden()
 
             let resultP = document.createElement('p')
 
@@ -71,8 +70,8 @@
 
             displayEl.appendChild(resultP)
         } else if(selectedCurrency === 'AED - United Arab Emirates Dirham') {
-            displayEl.classList.remove('hidden')
-            displayEl.innerHTML = ''
+
+            removeHidden()
 
             let resultP = document.createElement('p')
 
