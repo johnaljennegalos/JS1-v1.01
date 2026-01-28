@@ -56,6 +56,11 @@
             list.classList.add('hidden')
         }
 
+        currencyLoop()
+
+    })
+
+    function currencyLoop(){
         let currencies = document.querySelectorAll('#currencies li')
         currencies.forEach(item => {
             item.addEventListener('click', (event)=>{
@@ -66,8 +71,7 @@
 
             })
         })
-
-    })
+    }
 
 clearBtn.addEventListener('click', (event)=>{
     event.preventDefault()
