@@ -12,6 +12,7 @@ let countdownInterval;
 
 errorMsg.style.display = "none";
 
+
 function validateInput(){
 
     let hour = Number(hourInput.value);

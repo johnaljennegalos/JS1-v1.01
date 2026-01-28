@@ -4,6 +4,7 @@ let bookmarkDisplay = document.getElementById('bookmarkDisplay')
 
 let url = []
 
+
 bookmarkBtn.addEventListener('click', (event) => {
     event.preventDefault()
 

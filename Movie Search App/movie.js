@@ -84,20 +84,9 @@ function clearSearch(){
 
     const defaultImg = document.getElementById('rey');
 
-    // 1. Clear the results area (which deletes the image if it was inside)
     displayEl.innerHTML = '';
     displayEl.style.padding = '0px';
     defaultImg.classList.remove('hidden');
 
-    // if (defaultImg) {
-    //     // 2. Append the image back to the display container
-    //     displayEl.appendChild(defaultImg);
-    //
-    //     // 3. REMOVE the 'hidden' class (as used in the submit handler)
-    //     defaultImg.classList.remove('hidden');
-    //
-    //     // 4. Force the display to 'block' (to override any other inline or default style)
-    //     defaultImg.style.display = 'hidden';
-    // }
 }
 
