@@ -16,17 +16,4 @@ fileUpload.addEventListener('change', (event) => {
         reader.readAsDataURL(file)
     }
 
-    // reader.onload = function (event) {
-    //     imagePreview.src = reader.result
-    //     imagePreview.classList.remove('hidden')
-    // }
-
-    // fileUpload.onchange = function (event) {
-    //     let file =  event.target.files[0]
-    //     if(file) {
-    //         reader.readAsDataURL(file)
-    //         imagePreview.classList.remove('hidden')
-    //         imagePreview.style.display = 'block'
-    //     }
-    // }
 })
