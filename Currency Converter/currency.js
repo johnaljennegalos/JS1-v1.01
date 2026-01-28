@@ -7,10 +7,15 @@
     let displayEl = document.getElementById('currDisplay')
 
 
-    function removeHidden(){
+    function showResult(amount, currency, rate){
         displayEl.classList.remove('hidden')
         displayEl.innerHTML = ''
+
+        let resultP = document.createElement('p')
+        resultP.textContent = `${amount} Php to ${currency} is ${(amount * rate).toFixed(2)}`
+        displayEl.appendChild(resultP)
     }
+
 
     formEl.addEventListener('submit', (event)=>{
         event.preventDefault()
@@ -25,59 +30,17 @@
         let amount = Number(inputEl.value)
 
         if(selectedCurrency === 'USD - US Dollars') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 0.01717).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 0.01717)
         } else if(selectedCurrency === 'EUR - European Dollars') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 0.015).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 0.015)
         } else if(selectedCurrency === 'JPY - Japanese Yen') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 2.58).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 2.58)
         } else if(selectedCurrency === 'SGD - Singapore Dollar') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 0.0222).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 0.0222)
         } else if(selectedCurrency === 'SAR - Saudi Riyal') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 6.44).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 6.44)
         } else if(selectedCurrency === 'AED - United Arab Emirates Dirham') {
-
-            removeHidden()
-
-            let resultP = document.createElement('p')
-
-            resultP.textContent = `${amount} Php to ${selectedCurrency} is ${(amount * 6.31).toFixed(2)}`
-
-            displayEl.appendChild(resultP)
+            showResult(amount, selectedCurrency, 6.31)
         }
 
     })
