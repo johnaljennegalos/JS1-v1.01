@@ -79,12 +79,16 @@ guessBtn.addEventListener('click', () => {
     }
 
     if(tries === 3){
-        isPlaying = false
-        resultEl.textContent = "Game Over!"
-        resetBtn.style.backgroundColor = "red"
-        inputEl.disabled = true
-        resetBtn.textContent = "Guess again?"
+        checkTries()
     }
 })
+
+function checkTries(){
+    isPlaying = false
+    resultEl.textContent = "Game Over!"
+    resetBtn.style.backgroundColor = "red"
+    inputEl.disabled = true
+    resetBtn.textContent = "Guess again?"
+}
 
 resetBtn.addEventListener('click', reset)

@@ -26,16 +26,6 @@ function updateForm(){
             pageContent[i].classList.add('hidden')
         }
 
-        // if (topContent[i]) {
-        //     if(i === currentStep){
-        //         topContent[i].style.backgroundColor = 'black'
-        //     } else {
-        //         // Optional: Reset color (if needed)
-        //         topContent[i].style.backgroundColor = ''
-        //     }
-        // }
-
-
     }
 
 }
