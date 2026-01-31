@@ -46,10 +46,6 @@ const message = {
     random: "🔐"
 }
 
-const colors = {
-    resetDefault: "#f59e0b",
-    resetGameOver: "red"
-}
 
 function guessLogic(value){
     const guess = Number(value)
@@ -86,6 +82,11 @@ function defaultResetState(){
     isPlaying = true
     tries = 0
     lifeEl.textContent = message.life
+}
+
+const colors = {
+    resetDefault: "#f59e0b",
+    resetGameOver: "red"
 }
 
 function resetLogicUI(){
