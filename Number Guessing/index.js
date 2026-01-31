@@ -59,6 +59,10 @@ function reset(){
     tries = 0
     lifeEl.textContent = "Life: 3"
 
+    resetLogicUI()
+}
+
+function resetLogicUI(){
     let newRandom =  Math.floor(Math.random() * 100 + 1)
     random = newRandom
 
@@ -70,7 +74,6 @@ function reset(){
 
     resetBtn.textContent = 'Reset'
     resetBtn.style.backgroundColor = "#f59e0b"
-
 }
 
 guessBtn.addEventListener('click', () => {
