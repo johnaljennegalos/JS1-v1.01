@@ -87,16 +87,20 @@ guessBtn.addEventListener('click', () => {
     }
 
     if(tries === 3){
-        checkTries()
+        updateGameOverUI()
+        setGameOverState()
     }
 })
 
-function checkTries(){
-    isPlaying = false
+function updateGameOverUI(){
     resultEl.textContent = "Game Over!"
     resetBtn.style.backgroundColor = "red"
-    inputEl.disabled = true
     resetBtn.textContent = "Guess again?"
+}
+
+function setGameOverState(){
+    isPlaying = false
+    inputEl.disabled = true
 }
 
 resetBtn.addEventListener('click', reset)
