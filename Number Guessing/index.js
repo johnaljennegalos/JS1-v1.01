@@ -41,7 +41,8 @@ const message = {
     guessed: "You guess it!",
     gameOver: "Game Over!",
     guessAgain: "Guess again?",
-    reset: "Reset"
+    reset: "Reset",
+    life: "Life: 3"
 }
 
 function guessLogic(value){
@@ -78,7 +79,7 @@ function reset(){
 function defaultResetState(){
     isPlaying = true
     tries = 0
-    lifeEl.textContent = "Life: 3"
+    lifeEl.textContent = message.life
 }
 
 function resetLogicUI(){
