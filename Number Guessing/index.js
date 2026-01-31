@@ -42,7 +42,13 @@ const message = {
     gameOver: "Game Over!",
     guessAgain: "Guess again?",
     reset: "Reset",
-    life: "Life: 3"
+    life: "Life: 3",
+    random: "🔐"
+}
+
+const colors = {
+    resetDefault: "#f59e0b",
+    resetGameOver: "red"
 }
 
 function guessLogic(value){
@@ -67,7 +73,7 @@ function guessLogic(value){
 }
 
 function defaultUI(){
-    randomNum.textContent = "🔐"
+    randomNum.textContent = message.random
     inputEl.value = ""
 }
 
@@ -92,7 +98,7 @@ function resetLogicUI(){
     inputEl.disabled = false
 
     resetBtn.textContent = message.reset
-    resetBtn.style.backgroundColor = "#f59e0b"
+    resetBtn.style.backgroundColor = colors.resetDefault
 }
 
 
@@ -110,7 +116,7 @@ guessBtn.addEventListener('click', () => {
 
 function updateGameOverUI(){
     resultEl.textContent = message.gameOver
-    resetBtn.style.backgroundColor = "red"
+    resetBtn.style.backgroundColor = colors.resetGameOver
     resetBtn.textContent = message.guessAgain
 }
 
