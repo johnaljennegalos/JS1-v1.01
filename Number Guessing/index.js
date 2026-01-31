@@ -41,14 +41,12 @@ function guessLogic(value){
 
     if(guess < random){
         resultEl.textContent = "Too low!"
-        randomNum.textContent = "🔐"
-        inputEl.value = ""
+        defaultUI()
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else if(guess > random){
         resultEl.textContent = "Too high!"
-        randomNum.textContent = "🔐"
-        inputEl.value = ""
+        defaultUI()
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else {
@@ -56,6 +54,11 @@ function guessLogic(value){
         randomNum.textContent = random
         isPlaying = false
     }
+}
+
+function defaultUI(){
+    randomNum.textContent = "🔐"
+    inputEl.value = ""
 }
 
 function reset(){
@@ -71,8 +74,7 @@ function resetLogicUI(){
     let newRandom =  Math.floor(Math.random() * 100 + 1)
     random = newRandom
 
-    randomNum.textContent = '🔐'
-    inputEl.value = ''
+    defaultUI()
     resultEl.textContent = ''
 
     inputEl.disabled = false
@@ -80,6 +82,8 @@ function resetLogicUI(){
     resetBtn.textContent = 'Reset'
     resetBtn.style.backgroundColor = "#f59e0b"
 }
+
+
 
 guessBtn.addEventListener('click', () => {
     if (isPlaying === true){
