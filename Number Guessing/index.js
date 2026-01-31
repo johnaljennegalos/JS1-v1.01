@@ -62,12 +62,14 @@ function defaultUI(){
 }
 
 function reset(){
+    defaultResetState()
+    resetLogicUI()
+}
 
+function defaultResetState(){
     isPlaying = true
     tries = 0
     lifeEl.textContent = "Life: 3"
-
-    resetLogicUI()
 }
 
 function resetLogicUI(){
