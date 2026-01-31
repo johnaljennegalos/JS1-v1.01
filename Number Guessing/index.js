@@ -16,14 +16,14 @@ function generateRandomNumber(){
     const value = inputEl.value.trim()
 
     if(value === ""){
-        resultEl.textContent = "You must select a random number!"
-        randomNum.textContent = "🔐"
+        resultEl.textContent = message.randomNum
+        randomNum.textContent = message.random
         return
     }
 
     if(isNaN(value)){
-        resultEl.textContent = "Input a number!"
-        randomNum.textContent = "🔐"
+        resultEl.textContent = message.input
+        randomNum.textContent = message.random
         inputEl.value = ''
         return
     }
@@ -43,7 +43,9 @@ const message = {
     guessAgain: "Guess again?",
     reset: "Reset",
     life: "Life: 3",
-    random: "🔐"
+    random: "🔐",
+    randomNum: "You must select a random number!",
+    input: "Input a number!"
 }
 
 
