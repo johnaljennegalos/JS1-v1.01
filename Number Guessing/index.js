@@ -31,6 +31,11 @@ function generateRandomNumber(){
 
     console.log(random)
 
+    guessLogic(value)
+
+}
+
+function guessLogic(value){
     const guess = Number(value)
 
 
