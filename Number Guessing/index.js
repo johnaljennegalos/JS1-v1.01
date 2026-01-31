@@ -35,22 +35,31 @@ function generateRandomNumber(){
 
 }
 
+const message = {
+    tooLow: "Too Low!",
+    tooHigh: "Too High!",
+    guessed: "You guess it!",
+    gameOver: "Game Over!",
+    guessAgain: "Guess again?",
+    reset: "Reset"
+}
+
 function guessLogic(value){
     const guess = Number(value)
 
 
     if(guess < random){
-        resultEl.textContent = "Too low!"
+        resultEl.textContent = message.tooLow
         defaultUI()
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else if(guess > random){
-        resultEl.textContent = "Too high!"
+        resultEl.textContent = message.tooHigh
         defaultUI()
         tries++
         lifeEl.textContent = `Life: ${maxTries - tries}`
     } else {
-        resultEl.textContent = "You guess it!"
+        resultEl.textContent = message.guessed
         randomNum.textContent = random
         isPlaying = false
     }
@@ -81,7 +90,7 @@ function resetLogicUI(){
 
     inputEl.disabled = false
 
-    resetBtn.textContent = 'Reset'
+    resetBtn.textContent = message.reset
     resetBtn.style.backgroundColor = "#f59e0b"
 }
 
@@ -99,9 +108,9 @@ guessBtn.addEventListener('click', () => {
 })
 
 function updateGameOverUI(){
-    resultEl.textContent = "Game Over!"
+    resultEl.textContent = message.gameOver
     resetBtn.style.backgroundColor = "red"
-    resetBtn.textContent = "Guess again?"
+    resetBtn.textContent = message.guessAgain
 }
 
 function setGameOverState(){
